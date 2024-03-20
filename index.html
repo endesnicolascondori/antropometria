@@ -405,11 +405,20 @@
                 requestGetAll.onsuccess = function(event) {
                     data = event.target.result;
                     //console.log("Datos obtenidos desde agregar:", data.length);
-
+                    console.log("YYYYYYYYYYYYYYY", data);
                     // Crear un objeto para almacenar en el almacén
                     console.log("ddd",usuarios, viviendas)
-                    objeto = { id:1, usu: usuarios ,conglo: conglomerados
+
+
+                    if(data.length == 0){
+                        objeto = { id:1, usu: usuarios ,conglo: conglomerados
                               ,vivi: viviendas, segmen:segmen, marco:marco};
+                    }else{
+                        objeto = { id:1, usu: usuarios ,conglo: [ data[0].conglo, conglomerados].flat(Infinity)
+                              ,vivi: [data[0].vivi,  viviendas].flat(Infinity), segmen:[data[0].segmen, segmen].flat(Infinity), marco:marco};
+                    }
+
+                    objectStore.clear()
 
                 
 
@@ -468,7 +477,7 @@
                         let nomarchi = `${allData.usuariosbd[0].codsup}_${allData.usuariosbd[0].codconglo}_${allData.usuariosbd[0].codvivi}_${allData.usuariosbd[0].codhog}_${allData.usuariosbd[0].codencu}`
                         
                         console.error("nomarchi", nomarchi, allData)
-                        delete allData.usuariosfinalbd
+                        //delete allData.usuariosfinalbd
                         exportCombinedCollections(allData, nomarchi)
                         eliminaDatos()
 
