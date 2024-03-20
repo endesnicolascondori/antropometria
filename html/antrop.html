@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tabla de Errores en el Procedimiento</title>
+    <!-- Enlazar los archivos CSS de Bootstrap -->
+    <link href="../recursos/css/bootstrap.min.css" rel="stylesheet" >
+</head>
+<style>
+            table td, table th {
+        font-size: 12px; /* Puedes ajustar el tamaño de fuente según tus preferencias */
+    }
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        box-sizing: border-box;
+        margin-top: 80px;
+    }
+
+    #image-container {
+        height: 100vh;
+        overflow: auto;
+    }
+
+    .image img {
+        width: 100%;
+        /* object-fit: cover; */
+    }
+
+    .image {
+        height: 100%; 
+        margin-bottom: 20px;
+        background-color: lightgray;
+        /* background-image: none!important; */
+        display: flex;  
+    }
+
+
+    /* *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    } */
+    button.btn.rounded-circle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        fill: white;
+        width: 40px;
+        height: 40px;
+    }
+
+    .caja {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    div.posicionboton {
+        position: absolute;
+        /* transform: translate(0, -50%); */
+        right: 0.3rem;
+        top: 0.3rem;
+        /* opacity: 0.75; */
+    }
+   
+
+    .dev {
+        height: 100vh;
+        overflow-y: scroll;
+        width: 100%;
+    }
+
+
+    button.btn.btn-sm.btn-danger {
+        fill: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2px;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        margin-top: 0.3rem;
+    }
+    .input-group-text {
+        justify-content: space-between;
+        background-color: #bfbfbf;
+        /* border: 0;
+        border-radius: 0;
+        border-bottom: 1px solid white; */
+        grid-gap: 0.2rem;
+        padding: 0.375rem 0.4rem!important;
+        flex-direction: column;
+    }
+    /* .caj{
+        display: flex;
+    } */
+
+    .form-check-input {
+        width: 1.4em;
+        height: 1.4em;
+    }
+
+thead th {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+
+
+    /******/
+
+
+    .dropdown-toggle::before{
+        content: none!important;
+    }
+
+    /* .accordion-button {
+        padding: 0.4rem!important;
+    } */
+
+    .accordion-button::after {
+
+        transform: scale(0.6)!important;
+    }
+
+    .dropdown-menu {
+        min-width: 13rem!important;
+    }
+
+    .accordion-body {
+        padding: 0;
+    }
+    li.list-group-item {
+        font-size: 0.8rem;
+    }
+
+
+    button#dropdownMenuClickableInside {
+        display: flex;
+        background-color: #db69a2;
+        padding: 10px;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        align-items: center;
+        justify-content: center;
+        border: none;
+    }
+
+
+
+    .accordion-button:not(.collapsed) {
+        color: #ffffff;
+        background-color: #573b8a;
+        box-shadow: inset 0 -1px 0 rgba(0,0,0,.125);
+    }
+
+    .accordion-body {
+        color: black;
+        padding: 0.6rem;
+        letter-spacing: 0;
+        font-weight: 500;
+        line-height: 18px;
+    }
+    .btn-danger {
+        color: #fff;
+        background-color: #db69a2;
+        border-color: #db69a2;
+    }
+
+    .btn-danger:hover {
+        color: #fff;
+        background-color: #db69a2;
+        border-color: #db69a2;
+    }
+
+    .form-check-input:checked {
+        background-color: #573b8a;
+        border-color: #573b8a;
+    }
+
+    .btn-primary {
+        color: #fff;
+        background-color: #573b8a;
+        border-color: #573b8a;
+    }
+    .btn-primary:hover {
+        color: #fff;
+        background-color: #573b8a;
+        border-color: #573b8a;
+    }
+
+    .list-group-item {
+        padding:0px;
+    }
+
+    .dropdown-item:focus, .dropdown-item:hover {
+        color: #1e2125;
+        background-color: #dc35452b;
+    }
+
+    .accordion-button::after {
+        filter: invert(1);
+    }
+
+    .dropdown-item {
+        padding: 0.5rem 1.5rem;
+    }
+
+    .col.flex {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 0.4rem;
+    }
+
+
+
+    .form-check.espa {
+        display: flex;
+        grid-gap: 0.5rem;
+        align-items: center;
+    }
+
+
+    nav.navbar.navbar-light.bg-light {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        position: absolute;
+        width: 100%;
+    }
+    ol.breadcrumb {
+        align-items: center;
+        font-size: 0.8rem;
+        margin-bottom: 0px;
+    }
+
+
+    @media only screen and (max-width: 420px) {
+        /* .main {
+            width: 85%;
+        } */
+        ol.breadcrumb {
+            font-size: 0.5rem;
+        }
+        .navbar-brand {
+            margin-right: 0px!important;
+        }
+
+    }
+
+
+
+    thead {
+        font-size: 0.9rem;
+    }
+    table button.btn.btn-primary {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* width: 38px; */
+        /* height: 38px; */
+        /* border-radius: 50%; */
+        fill: white;
+        margin: auto;
+    }
+
+    .form-check.form-switch {
+        display: flex;
+        justify-content: center;
+    }
+
+    h5#modalTitle {
+        font-size: 0.9rem;
+    }
+    th.presen {
+        font-size: 10px;
+        letter-spacing: 1.4px;
+    }
+
+
+    .tuClase{
+        pointer-events: none;
+        opacity: 0.6;
+    }
+
+    .mediciones {
+        background-color: black;
+        color: white !important;
+    }
+    .entrega-resultados {
+        background-color: #b0e0e6;
+    }
+    .guardado {
+        background-color: #e4e6b0;
+    }
+
+</style>
+<body>
+
+    <div class="caja">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container">
+              <a class="navbar-brand" href="../index.html">
+                <!-- <img src="https://aplications.inei.gob.pe/WebEndesEncuesta/public/img/endes_logo.png" alt="" width="30" height="30"> -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+                    <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+                </svg>
+              </a>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item" id="nomencu">SANDY GABRIELA ALVA CACHIQUE</li>
+                  <li class="breadcrumb-item" id="nomeconglo">4268</li>
+                  <li class="breadcrumb-item" id="nomevivi">001</li>
+                  <li class="breadcrumb-item" id="nomehog">01</li>
+                </ol>
+              </nav>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="table-light table-dark">
+                <tr>
+                    <th colspan="3">REGISTROS DE TIEMPO DE MEDICIONES ANTROPOMÉTRICAS Y PRUEBA DE HEMOGLOBINA</th>
+                </tr> 
+                <tr>
+                    <th scope="col" >N°</th>  
+                    <th scope="col" colspan="2">PREGUNTAS Y FILTROS</th>                        
+                    <!-- <th scope="col" ></th>   -->
+                    <!-- <th scope="col" colspan="2">CATEGORÍAS Y CÓDIGOS</th>         -->
+
+                </tr>
+            </thead>
+            <tbody data-bd="tiempo" class="tdobyprev">
+
+                    <tr >                           
+                        <td>1</td>
+                        <td>ANTROPOMETRISTA SELECCIONAR EL RESULTADO DE LA UBICACIÓN DE LOS INFORMANTES PARA ESTA SECCIÓN (SOLO PARA DILIGENCIAR SI SE APERTURÓ LA VIVIENDA)</td>                       
+                        
+                        <td class="align-middle">
+                            <select class="form-select seleccionar-ubicacion d-inline" style="width: 200px;" data-id="resultadoA">
+                                <option value="0">SELECCIONAR</option>
+                                <option value="1">PRESENTE</option>
+                                <option value="2">NO PRESENTE</option>
+                                <option value="3">RECHAZO</option>
+                                <option value="6">OTRO</option>
+                            </select>
+                            <br><br>                           
+                            <input data-id="resultadoA_esp" type="text" class="form-control input-especificar d-inline" style="width: 200px; display: none;">
+                        </td>
+                    </tr>
+
+                    <tr data-id="2aa"  class="mediciones">                        
+                        <td colspan="3">ANTROPOMETRISTA: REGISTRE LA FECHA Y HORA DE CADA ACTIVIDAD PROGRAMADA DURANTE SU PERMANENCIA EN LA VIVIENDA Y HOGAR
+                            <br>
+                        </td>
+                    </tr>  
+
+                    <tr > 
+                        <td>2</td>
+                        <td>REGISTRE FECHA Y HORA DE INICIO DE LA PRESENTACIÓN Y ARMADO DE EQUIPOS<br>
+                        <strong>PREVIO A LA MEDICIÓN ANTROPOMÉTRICA:</strong> CONSIDERAR LA HORA DE INICIO DESDE LA PRESENTACIÓN BREVE QUE PUEDE SER AL INGRESAR A LA VIVIENDA O ESTANDO EN LA CALLE PARA INICIAR EL ARMADO DE LOS EQUIPOS.
+                        </td>
+
+                        <td class="align-middle">
+                            <button type="button" class="btn btn-primary btn-inicio2 d-inline" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 200px;" data-id="fecha_iniAr">
+                                Fecha Inicial
+                            </button>                            
+                            <br><br>
+                            <input data-id="fecha_iniAr" type="text" class="form-control fecha-inicio2-input d-inline" style="width: 200px;">
+                            <br><br>
+                            <select class="form-select seleccionar-resultado2 d-inline" style="width: 200px;" data-id="estadoAr">
+                                <option value="0">SELECCIONAR</option>                                
+                                <option value="3">RECHAZO</option>                                
+                            </select>
+                        </td>
+                    </tr>
+
+            
+                    <tr data-id='fila3'> 
+                        <td>3</td>
+                        <td>REGISTRE FECHA  Y HORA DE TERMINO DEL ARMADO DE LOS EQUIPOS
+                            <br><strong>PREVIO A LA MEDICIÓN ANTROPOMÉTRICA:</strong> CONSIDERAR LA FECHA Y HORA DE TERMINO LUEGO DE UBICAR, ARMAR LOS EQUIPOS (TALLIMETRO Y BALANZA)Y DEJAR LISTO PARA LAS MEDICIONES.</td>
+                        <td class="align-middle">
+                            <button type="button" class="btn btn-primary btn-fin3 d-inline" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 200px;" data-id="fecha_finAr">
+                                Fecha Final
+                            </button>
+                            <br><br>
+                            <input data-id="fecha_finAr" type="text" class="form-control fecha-fin3-input d-inline" style="width: 200px;">
+                        </td>
+                       
+                    </tr>
+            
+                    <tr  class="guardado"> 
+                        <td>4</td>
+                        <td>REGISTRE FECHA  Y HORA DE INICIO DE MEDICIONES <br>
+                            <strong>EJECUCIÓN DE MEDICIONES:</strong> CONSIDERAR LA FECHA Y HORA DE INICIO CUANDO INICIA LA EXPLICACIÓN FORMALMENTE PARA LA APLICACIÓN DE MEDICIONES.</td>
+                        <td class="align-middle">
+                            <button type="button" class="btn btn-primary btn-inicio4 d-inline" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 200px;" data-id="fecha_iniMed">
+                                Fecha Inicial
+                            </button>
+                            <br><br>
+                            <input data-id="fecha_iniMed" type="text" class="form-control fecha-inicio4-input d-inline" style="width: 200px;">
+                        </td>                        
+                    </tr>
+
+                    <tr > 
+                        <td>5</td>
+                        <td>REGISTRE FECHA  Y HORA DE INICIO DEL GUARDADO Y DESINFECCIÓN DEL HEMOGLOBINOMETRO Y CHAQUETA DE LA ANTROPOMETRISTA<br>
+                            <strong>POSTERIOR A LA PRUEBA DE HEMOGLOBINA:</strong> CONSIDERAR LA HORA DE INICIO LUEGO DE VERIFICAR EL DATO DICTADO.
+                        </td>
+                        <td class="align-middle">
+                            <button type="button" class="btn btn-primary btn-inicio5 d-inline" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 200px;" data-id="fecha_iniGuH">
+                                Fecha Inicial
+                            </button>
+                            <br><br>
+                            <input data-id="fecha_iniGuH" type="text" class="form-control fecha-inicio5-input d-inline" style="width: 200px;">
+                            <br><br>
+                            <select class="form-select seleccionar-resultado5 d-inline" style="width: 200px;" data-id="estadoGuH">
+                                <option value="0">SELECCIONAR</option>
+                                <option value="3">RECHAZO</option>
+                                <option value="6">OTRO</option>
+                            </select>
+                            <br><br>
+                            <input type="text" class="form-control input-especificar5 d-inline" style="width: 200px; display: none;" data-id="estadoGuH_esp">
+                        </td>
+
+                    </tr>
+
+                    <tr data-id='fila6'> 
+                        <td>6</td>
+                        <td>REGISTRE FECHA  Y HORA DE TERMINO DEL GUARDADO DEL HEMOGLOBINOMETRO Y DESINFECCIÓN<br>
+
+                            <strong>A LA PRUEBA DE HEMOGLOBINA:</strong> CONSIDERAR LA HORA DE TERMINO LUEGO QUE SE DESINFECTO EL EQUIPO Y LA ANTROPOMETRISTA GUARDO SU CHAQUETA EN LA MOCHILA.</td>
+                        <td class="align-middle">
+                            <button type="button" class="btn btn-primary btn-fin6 d-inline" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 200px;" data-id="fecha_finGuH">
+                                Fecha Final
+                            </button>
+                            <br><br>
+                            <input data-id="fecha_finGuH" type="text" class="form-control fecha-fin6-input d-inline" style="width: 200px;">
+                        </td>
+                    </tr>
+
+                    <tr > 
+                        <td>7</td>
+                        <td>REGISTRE FECHA  Y HORA DE INICIO DE LLLENADO DE LA HOJA DE RESULTADO (HOJA ROSADA)<br>  
+
+                            <strong>ENTREGA DE RESULTADOS:</strong> CONSIDERAR EL INICIO DESDE EL MOMENTO DE INICIAR LA TRANSCRIPCIÓN DE MEDIDAS A LA HOJA DE RESULTADO (HOJA ROSADA).</td>
+                        <td class="align-middle">
+                            <button type="button" class="btn btn-primary btn-inicio7 d-inline" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 200px;"  data-id="fecha_iniRes">
+                                Fecha Inicial
+                            </button>
+                            <br><br>
+                            <input  data-id="fecha_iniRes" type="text" class="form-control fecha-inicio7-input d-inline" style="width: 200px;">
+                        </td>                        
+                    </tr>
+
+                    
+                    <tr > 
+                        <td>8</td>
+                        <td>REGISTRE FECHA  Y HORA DE TERMINO DE LA ENTREGA DE RESULTADO<br>
+
+                        <strong>ENTREGA DE RESULTADO:</strong> CONSIDERAR LA HORA DE TERMINO LUEGO QUE LLENO LA HOJA Y TERMINO LA EXPLICACIÓN DE LOS RESULTADOS DE ANTROPOMETRIA Y HEMOGLOBINA.</td>
+                        <td class="align-middle">
+                            <button type="button" class="btn btn-primary btn-fin8 d-inline" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 200px;" data-id="fecha_finRes">
+                                Fecha Final
+                            </button>
+                            <br><br>
+                            <input data-id="fecha_finRes" type="text" class="form-control fecha-fin8-input d-inline" style="width: 200px;">
+                        </td>
+                    </tr>
+                  
+                    <tr >   
+                        <td>9</td>
+                        <td>
+                            N° DE ORDEN Y NOMBRE DEL CUESTIONARIO DEL HOGAR DE LAS PERSONAS CON AL MENOS UNA MEDICIÓN O PRUEBA APLICADA EN LA VISITA <br>
+                            (SOLICITAR EL DATO A LA ENTREVISTADORA)
+                        </td>
+                        <td class="align-middle">                            
+                            <!-- <input data-id="9aa" type="number" class="form-control input-cantidad d-inline" placeholder="Cantidad" style="width: 200px;"> -->
+                            <a type="button" class="btn btn-secondary btn-fin8 d-inline" style="width: 200px;" id="agregar">
+                                +
+                            </a>
+                            <br><br>
+                            <div class="nombre-orden-container" data-id="9cant">
+                                
+                            </div>
+                        </td>
+                    </tr>
+        
+                    <tr > 
+                        <td>10</td>
+                        <td>REGISTRE FECHA  Y HORA DE INICIO DEL GUARDADO DE EQUIPOS <br>
+
+                            <strong>GUARDADO DE EQUIPOS:</strong> CONSIDERAR LA HORA DE INICIO DEL GUARDADO DE LOS EQUIPO BALANZA Y TALLIMETRO CUANDO INICIARA LA LIMPIEZA DE LA BALANZA.</td>
+                        <td class="align-middle">
+                            <button type="button" class="btn btn-primary btn-inicio10 d-inline" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 200px;" data-id="fecha_iniGuE">
+                                Fecha Inicial
+                            </button>
+                            <br><br>
+                            <input data-id="fecha_iniGuE" type="text" class="form-control fecha-inicio10-input d-inline" style="width: 200px;">
+                            <br><br>
+                            <select class="form-select seleccionar-resultado10 d-inline" style="width: 200px;" data-id="estadoGuE">
+                                <option value="0">SELECCIONAR</option>
+                                <option value="3">RECHAZO</option>
+                                <option value="6">OTRO</option>
+                            </select>
+                        </td>                        
+                    </tr>
+
+                    
+                    <tr data-id='fila11'> 
+                        <td>11</td>
+                        <td>REGISTRE FECHA  Y HORA DE TERMINO DEL GUARDADO DE EQUIPOS <br>
+
+                            <strong>GUARDADO DE EQUIPOS:</strong> CONSIDERAR LA HORA DE TERMINO CUANDO GUARDO EL TALLIMETRO EN SU MOCHILA Y TODOS LOS ACCESORIOS (TAQUITOS).</td>
+                        <td class="align-middle">
+                            <button type="button" class="btn btn-primary btn-fin11 d-inline" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 200px;" data-id="fecha_finGuE">
+                                Fecha Final
+                            </button>
+                            <br><br>
+                            <input data-id="fecha_finGuE" type="text" class="form-control fecha-fin11-input d-inline" style="width: 200px;">
+                        </td>
+                    </tr>
+
+                    <tr  class="guardado"> 
+                        <td>12</td>
+                        <td>REGISTRE FECHA  Y HORA DE TERMINO DEL GUARDADO DE EQUIPOS <br>
+
+                           <strong>EJECUCIÓN DE LAS MEDICIONES:</strong> CONSIDERAR LA HORA DE TERMINO CUANDO LA ANTROPOMETRISTA YA CULMINO TODA SU ACTIVIDAD EN ESA VISITA. (NO CONSIDERAR LA ESPERA A LA  ENTREVISTADORA PARA SALIR DE LA VIVIENDA)</td>
+                        <td class="align-middle">
+                            <button type="button" class="btn btn-primary btn-fin12 d-inline" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 200px;" data-id="fecha_finMed">
+                                Fecha Final
+                            </button>                        
+                        <br><br>
+                        <input data-id="fecha_finMed" type="text" class="form-control fecha-fin12-input d-inline" style="width: 200px;">  
+                        </td>                      
+                    </tr>
+
+                    <tr>
+                        <th colspan="4" style="text-align: center;">OBSERVACIONES DE LA ANTROPOMETRISTA</th>
+                    </tr> 
+                    <tr data-id="obs">
+                        <td colspan="4">
+                            <textarea data-id="observacion" class="form-control" rows="4"></textarea>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+       
+
+<!-- Agrega este código HTML para el modal de alerta -->
+<div class="modal" tabindex="-1" id="alertModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Alerta</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="alertMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Agrega este código HTML para el modal de temporalizador -->
+<div class="modal" tabindex="-1" id="temporalizadorModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Alerta</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="temporalizadorMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </div>
+    <script src="../recursos/js/bootstrap.min.js" ></script>
+    <script>
+
+// Obtener el elemento de selección del combobox y el campo de texto de especificación
+var seleccionarUbicacion = document.querySelector('.seleccionar-ubicacion');
+var inputEspecificar = document.querySelector('.input-especificar');
+
+// Bloquear el campo de texto al cargar la página si la opción seleccionada no es "OTRO"
+if (seleccionarUbicacion.value !== '6') {
+    inputEspecificar.disabled = true;
+}
+
+// Mostrar u ocultar el campo de texto según la opción seleccionada en el combobox
+seleccionarUbicacion.addEventListener('change', function() {
+    if (seleccionarUbicacion.value === '6') {
+        inputEspecificar.style.display = 'inline';
+        inputEspecificar.disabled = false;
+    } else {
+        inputEspecificar.style.display = 'none';
+        inputEspecificar.disabled = true;
+    }
+});
+
+
+/*SELECC 5*/
+
+var seleccionarResultado5 = document.querySelector('.seleccionar-resultado5');
+var inputEspecificar5 = document.querySelector('.input-especificar5');
+
+if (seleccionarResultado5.value != '6') {
+    inputEspecificar5.disabled = true;
+}
+
+seleccionarResultado5.addEventListener('change', function() {
+    if (seleccionarResultado5.value === '6') {
+        inputEspecificar5.style.display = 'inline';
+        inputEspecificar5.disabled = false;
+    } else {
+        inputEspecificar5.style.display = 'none';
+        inputEspecificar5.disabled = true;
+    }
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Función para obtener la fecha actual en formato "YYYY-MM-DD"
+    function obtenerFechaHoraActual() {
+        const ahora = new Date();
+        const fecha = ahora.toLocaleDateString();
+        const hora = ahora.toLocaleTimeString();
+        const fechaHora = `${fecha} ${hora}`;
+        return fechaHora;
+    }
+
+    // Variable para almacenar el identificador del temporizador
+    var temporizador;
+    var fechaInicioMarcada;
+    var fechaInicioMarcada2;
+    var fechaInicioMarcada3;
+    var fechaInicioMarcada4;
+    var fechaInicioMarcada5;
+
+    // "Fecha Inicial 2"
+    document.querySelector(".btn-inicio2").addEventListener("click", function() {
+        var fechaActual = obtenerFechaHoraActual();        
+        document.querySelector(".fecha-inicio2-input").value = fechaActual;        
+        this.disabled = true; 
+        document.querySelector(".fecha-inicio2-input").disabled = true;
+        // Marcar que la fecha inicial ha sido marcada
+        fechaInicioMarcada = true;
+        
+        // // Establecer un temporizador para alertar después de un minuto
+        // temporizador = setTimeout(function() {
+        //     alert('¡Recuerda marcar la fecha final!');
+        // }, 60000); // 60000 milisegundos equivalen a 1 minuto
+
+        temporizador = setTimeout(function() {
+        var temporalizadorModal = new bootstrap.Modal(document.getElementById('temporalizadorModal'));
+            document.getElementById('temporalizadorMessage').innerText = '¡Recuerda marcar la fecha final!';
+            temporalizadorModal.show();
+        }, 60000);
+    });
+
+    // "Fecha Final 3"
+    document.querySelector(".btn-fin3").addEventListener("click", function() {
+        // Limpiar el temporizador si se marca la fecha final antes del minuto
+        clearTimeout(temporizador);
+        
+        // Verificar si la fecha inicial ha sido marcada
+        if (!fechaInicioMarcada) {
+            // Mostrar el modal de alerta
+            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
+            alertModal.show();
+            return; // Detener la ejecución si la fecha inicial no ha sido marcada
+        }
+        var fechaActual = obtenerFechaHoraActual();        
+        document.querySelector(".fecha-fin3-input").value = fechaActual;
+        this.disabled = true; 
+        document.querySelector(".fecha-fin3-input").disabled = true;
+    });
+
+
+
+
+/*SEGUNDO TRAMO DE FECHA*/
+
+    // "Fecha Inicial 5"
+    document.querySelector(".btn-inicio5").addEventListener("click", function() {
+        var fechaActual = obtenerFechaHoraActual();        
+        document.querySelector(".fecha-inicio5-input").value = fechaActual;        
+        this.disabled = true; 
+        document.querySelector(".fecha-inicio5-input").disabled = true;
+        // Marcar que la fecha inicial ha sido marcada
+        fechaInicioMarcada2 = true;
+        
+        // // Establecer un temporizador para alertar después de un minuto
+        // temporizador = setTimeout(function() {
+        //     alert('¡Recuerda marcar la fecha final!');
+        // }, 60000); // 60000 milisegundos equivalen a 1 minuto
+
+        temporizador = setTimeout(function() {
+        var temporalizadorModal = new bootstrap.Modal(document.getElementById('temporalizadorModal'));
+            document.getElementById('temporalizadorMessage').innerText = '¡Recuerda marcar la fecha final!';
+            temporalizadorModal.show();
+        }, 60000);
+    });
+
+    // "Fecha Final 6"
+    document.querySelector(".btn-fin6").addEventListener("click", function() {
+        // Limpiar el temporizador si se marca la fecha final antes del minuto
+        clearTimeout(temporizador);
+        
+        // Verificar si la fecha inicial ha sido marcada
+        if (!fechaInicioMarcada2) {
+            // Mostrar el modal de alerta
+            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
+            alertModal.show();
+            return; // Detener la ejecución si la fecha inicial no ha sido marcada
+        }
+        var fechaActual = obtenerFechaHoraActual();        
+        document.querySelector(".fecha-fin6-input").value = fechaActual;
+        this.disabled = true; 
+        document.querySelector(".fecha-fin6-input").disabled = true;
+    });
+
+
+    // var selectElement = document.querySelector(".seleccionar-resultado5");
+    //         var rowToHide1 = document.querySelector("[data-id='6a']");
+    //         var rowToShow2 = document.querySelector("[data-id='7a']");
+            
+    //         selectElement.addEventListener("change", function() {
+    //             if (this.value === "3" || this.value === "6") {
+    //                 rowToShow2.style.display = "table-row";
+    //                 rowToHide1.style.display = "none";
+    //             } else {
+    //                 rowToShow2.style.display = "table-row";
+    //                 rowToHide1.style.display = "table-row";
+    //             }
+    //         });
+
+
+/*TERCER TRAMO DE FECHA*/
+
+    // "Fecha Inicial 7"
+    document.querySelector(".btn-inicio7").addEventListener("click", function() {
+        var fechaActual = obtenerFechaHoraActual();        
+        document.querySelector(".fecha-inicio7-input").value = fechaActual;        
+        this.disabled = true; 
+        document.querySelector(".fecha-inicio7-input").disabled = true;
+        // Marcar que la fecha inicial ha sido marcada
+        fechaInicioMarcada3 = true;
+        
+        // // Establecer un temporizador para alertar después de un minuto
+        // temporizador = setTimeout(function() {
+        //     alert('¡Recuerda marcar la fecha final!');
+        // }, 60000); // 60000 milisegundos equivalen a 1 minuto
+
+        temporizador = setTimeout(function() {
+        var temporalizadorModal = new bootstrap.Modal(document.getElementById('temporalizadorModal'));
+            document.getElementById('temporalizadorMessage').innerText = '¡Recuerda marcar la fecha final!';
+            temporalizadorModal.show();
+        }, 60000);
+    });
+
+    // "Fecha Final 8"
+    document.querySelector(".btn-fin8").addEventListener("click", function() {
+        // Limpiar el temporizador si se marca la fecha final antes del minuto
+        clearTimeout(temporizador);
+        
+        // Verificar si la fecha inicial ha sido marcada
+        if (!fechaInicioMarcada3) {
+            // Mostrar el modal de alerta
+            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
+            alertModal.show();
+            return; // Detener la ejecución si la fecha inicial no ha sido marcada
+        }
+        var fechaActual = obtenerFechaHoraActual();        
+        document.querySelector(".fecha-fin8-input").value = fechaActual;
+        this.disabled = true; 
+        document.querySelector(".fecha-fin8-input").disabled = true;
+    }); 
+
+/*CUARTA TRAMO DE FECHA*/
+
+    // "Fecha Inicial 10"
+    document.querySelector(".btn-inicio10").addEventListener("click", function() {
+        var fechaActual = obtenerFechaHoraActual();        
+        document.querySelector(".fecha-inicio10-input").value = fechaActual;        
+        this.disabled = true; 
+        document.querySelector(".fecha-inicio10-input").disabled = true;
+        // Marcar que la fecha inicial ha sido marcada
+        fechaInicioMarcada4 = true;
+        
+        // // Establecer un temporizador para alertar después de un minuto
+        // temporizador = setTimeout(function() {
+        //     alert('¡Recuerda marcar la fecha final!');
+        // }, 60000); // 60000 milisegundos equivalen a 1 minuto
+
+        temporizador = setTimeout(function() {
+        var temporalizadorModal = new bootstrap.Modal(document.getElementById('temporalizadorModal'));
+            document.getElementById('temporalizadorMessage').innerText = '¡Recuerda marcar la fecha final!';
+            temporalizadorModal.show();
+        }, 60000);
+    });
+
+    // "Fecha Final 11"
+    document.querySelector(".btn-fin11").addEventListener("click", function() {
+        // Limpiar el temporizador si se marca la fecha final antes del minuto
+        clearTimeout(temporizador);
+        
+        // Verificar si la fecha inicial ha sido marcada
+        if (!fechaInicioMarcada4) {
+            // Mostrar el modal de alerta
+            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
+            alertModal.show();
+            return; // Detener la ejecución si la fecha inicial no ha sido marcada
+        }
+        var fechaActual = obtenerFechaHoraActual();        
+        document.querySelector(".fecha-fin11-input").value = fechaActual;
+        this.disabled = true; 
+        document.querySelector(".fecha-fin11-input").disabled = true;
+    }); 
+
+/*QUINTO TRAMO DE FECHA*/
+
+    // "Fecha Inicial 4"
+    document.querySelector(".btn-inicio4").addEventListener("click", function() {
+        var fechaActual = obtenerFechaHoraActual();        
+        document.querySelector(".fecha-inicio4-input").value = fechaActual;        
+        this.disabled = true; 
+        document.querySelector(".fecha-inicio4-input").disabled = true;
+        // Marcar que la fecha inicial ha sido marcada
+        fechaInicioMarcada5 = true;
+        
+        // // Establecer un temporizador para alertar después de un minuto
+        // temporizador = setTimeout(function() {
+        //     alert('¡Recuerda marcar la fecha final!');
+        // }, 60000); // 60000 milisegundos equivalen a 1 minuto
+
+        temporizador = setTimeout(function() {
+        var temporalizadorModal = new bootstrap.Modal(document.getElementById('temporalizadorModal'));
+            document.getElementById('temporalizadorMessage').innerText = '¡Recuerda marcar la fecha final!';
+            temporalizadorModal.show();
+        }, 60000);
+    });
+
+    // "Fecha Final 12"
+    document.querySelector(".btn-fin12").addEventListener("click", function() {
+        // Limpiar el temporizador si se marca la fecha final antes del minuto
+        clearTimeout(temporizador);
+        
+        // Verificar si la fecha inicial ha sido marcada
+        if (!fechaInicioMarcada5) {
+            // Mostrar el modal de alerta
+            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
+            alertModal.show();
+            return; // Detener la ejecución si la fecha inicial no ha sido marcada
+        }
+        var fechaActual = obtenerFechaHoraActual();        
+        document.querySelector(".fecha-fin12-input").value = fechaActual;
+        this.disabled = true; 
+        document.querySelector(".fecha-fin12-input").disabled = true;
+    }); 
+
+
+
+    // Obtener el elemento de entrada de cantidad
+    const inputCantidad = document.querySelector('.input-cantidad');
+    // Obtener el contenedor donde se agregarán dinámicamente los campos de nombre y orden
+    const nombreOrdenContainer = document.querySelector('.nombre-orden-container');
+
+
+    // Evento de cambio en el campo de cantidad
+    // inputCantidad.addEventListener('change', function() {
+    //     // Limpiar el contenedor antes de agregar los nuevos campos
+    //     nombreOrdenContainer.innerHTML = '';
+    //     // Obtener la cantidad ingresada
+    //     const cantidad = parseInt(inputCantidad.value);
+
+    //     // Agregar campos de nombre y orden según la cantidad ingresada
+    //     for (let i = 1; i <= cantidad; i++) {
+    //         // Crear elementos de input para nombre y orden
+    //         const inputNombre = document.createElement('input');
+    //         inputNombre.type = 'text';
+    //         inputNombre.classList.add('form-control', 'input-nombre');
+    //         inputNombre.setAttribute("data-item", `n${i}`)
+    //         inputNombre.placeholder = 'Nombre';
+    //         inputNombre.style.width = '200px';
+    //         inputNombre.style.display = 'inline';
+
+    //         const inputOrden = document.createElement('input');
+    //         inputOrden.type = 'text';
+    //         inputOrden.classList.add('form-control', 'input-orden');
+    //         inputOrden.setAttribute("data-item", `o${i}`)
+    //         inputOrden.placeholder = 'N° Orden';
+    //         inputOrden.style.width = '200px';
+    //         inputOrden.style.display = 'inline';
+
+    //         // Agregar los campos de nombre y orden al contenedor
+    //         nombreOrdenContainer.appendChild(inputNombre);
+    //         nombreOrdenContainer.appendChild(inputOrden);
+
+    //         // Agregar un salto de línea entre cada par de campos de nombre y orden
+    //         const lineBreak = document.createElement('br');
+    //         nombreOrdenContainer.appendChild(lineBreak.cloneNode());
+    //         nombreOrdenContainer.appendChild(lineBreak.cloneNode());
+    //     }
+    // });
+
+
+    document.querySelector("#agregar").addEventListener("click", e=>{
+        console.log("clickkkk");
+
+        
+
+        // Crear elementos de input para nombre y orden
+        const inputNombre = document.createElement('input');
+        inputNombre.type = 'text';
+        inputNombre.classList.add('form-control', 'input-nombre');
+        //inputNombre.setAttribute("data-item", `n${i}`)
+        //inputNombre.setAttribute("data-id", `n`)
+        inputNombre.setAttribute("data-insertar", `insert`)
+        inputNombre.placeholder = 'Nombre';
+        inputNombre.style.width = '200px';
+        inputNombre.style.display = 'inline';
+
+        const inputOrden = document.createElement('input');
+        inputOrden.type = 'text';
+        inputOrden.classList.add('form-control', 'input-orden', 'contador');
+        //inputOrden.setAttribute("data-item", `o${i}`)
+        //inputOrden.setAttribute("data-id", `o`)
+        inputOrden.setAttribute("data-insertar", `insert`)
+        inputOrden.placeholder = 'N° Orden';
+        inputOrden.style.width = '200px';
+        inputOrden.style.display = 'inline';
+
+        
+
+        // Agregar los campos de nombre y orden al contenedor
+        nombreOrdenContainer.appendChild(inputNombre);
+        nombreOrdenContainer.appendChild(inputOrden);
+
+        // Agregar un salto de línea entre cada par de campos de nombre y orden
+        const lineBreak = document.createElement('br');
+        nombreOrdenContainer.appendChild(lineBreak.cloneNode());
+        nombreOrdenContainer.appendChild(lineBreak.cloneNode());
+
+        let cont = document.querySelectorAll(".contador")
+        inputNombre.setAttribute("data-id", `n${cont.length}`)
+        inputOrden.setAttribute("data-id", `o${cont.length}`)
+        //console.log();
+    })
+
+
+
+    var selectElement = document.querySelector(".seleccionar-resultado2");
+    var rowToShow = document.querySelector("[data-id='fila3']");
+
+    selectElement.addEventListener("change", function() {
+        if (this.value === "3") {
+            rowToShow.style.display = "none";
+        } else {
+            rowToShow.style.display = "table-row";
+        }
+    });
+
+
+    var selectElement2 = document.querySelector(".seleccionar-resultado5");
+    var rowToShow2 = document.querySelector("[data-id='fila6']");
+
+    selectElement2.addEventListener("change", function() {
+        if (this.value === "3") {
+            rowToShow2.style.display = "none";
+        } else {
+            rowToShow2.style.display = "table-row";
+        }
+    });
+
+
+    var selectElement3 = document.querySelector(".seleccionar-resultado10");
+    var rowToShow3 = document.querySelector("[data-id='fila11']");
+
+    selectElement3.addEventListener("change", function() {
+        if (this.value === "3") {
+            rowToShow3.style.display = "none";
+        } else {
+            rowToShow3.style.display = "table-row";
+        }
+    });
+
+
+});
+
+
+
+    </script>
+    <script>
+         
+        var button = document.getElementById('agregar');
+        button.addEventListener('click', function() {
+            //alert('Button clicked!');
+        });
+
+        function obtenerDatosLogin() {
+            // Abrir la base de datos
+            var request = indexedDB.open("miBaseDeDatos2", 1);
+
+            request.onsuccess = function(event) {
+                var db = event.target.result;
+
+                // Iniciar una transacción de lectura
+                var transaction = db.transaction(["usuariosbd"], "readonly");
+
+                // Obtener el almacén de objetos
+                var objectStore = transaction.objectStore("usuariosbd");
+
+                // Obtener todos los objetos del almacén
+                var requestGetAll = objectStore.getAll();
+
+
+                requestGetAll.onsuccess = function(event) {
+                    var data = event.target.result;
+                    console.log("Datos obtenidos.usu...:", data);
+
+                    document.querySelector("#nomencu").textContent = data[0].nomencu
+                    document.querySelector("#nomeconglo").textContent = data[0].codconglo
+                    document.querySelector("#nomevivi").textContent = data[0].codvivi
+                    document.querySelector("#nomehog").textContent = data[0].codhog
+                    
+                    data[0].cargoencu == 22 ? window.location.href = "supervisora.html":""
+                };
+
+                requestGetAll.onerror = function(event) {
+                console.log("Error al obtener los datos");
+                };
+            };
+        }
+
+        function obtenerDatosTiempo() {
+            // Abrir la base de datos
+            var request = indexedDB.open("miBaseDeDatos2", 1);
+
+            request.onsuccess = function(event) {
+                var db = event.target.result;
+
+                // Iniciar una transacción de lectura
+                var transaction = db.transaction(["tiempo"], "readonly");
+
+                // Obtener el almacén de objetos
+                var objectStore = transaction.objectStore("tiempo");
+
+                // Obtener todos los objetos del almacén
+                var requestGetAll = objectStore.getAll();
+
+
+                requestGetAll.onsuccess = function(event) {
+                    var data = event.target.result;
+                    console.log("Datos obtenidos.tiempo...:", data);
+
+                    let selects = document.querySelectorAll("select");
+
+                    selects.forEach(select => {
+                        let options = select.querySelectorAll("option");
+                        data.forEach(el => {
+                            if(el.id == select.getAttribute("data-id") ){
+
+                              options.forEach(option => {
+                                    if (option.value === el[el.id]) {
+                                        option.setAttribute("selected", "selected");
+                                    }
+                              });  
+                            }
+                        });
+                    });
+
+                    let inputs = document.querySelectorAll("input");
+
+                    inputs.forEach(el => {
+                        data.forEach(de => {
+                            if(el.getAttribute("data-id") == de.id){
+                                //console.log(el);
+                                el.value = de[de.id]
+                            }
+                        })
+                    });
+
+
+                    data.forEach(de => {
+                        
+                        let text = document.querySelector("textarea")
+
+                        if(text.getAttribute("data-id") == de.id){
+                            document.querySelector("textarea").textContent = de[de.id]
+                        }
+
+                    })
+
+
+
+                    let buttons = document.querySelectorAll("button");
+
+                    buttons.forEach(el => {
+                        if(el.getAttribute("data-id")){
+                            if(el.nextElementSibling.nextElementSibling.nextElementSibling.value != "" ){
+                                el.setAttribute("disabled", true)
+                                // console.log(el.parentElement.lastElementChild.nodeName == "SELECT");
+                                // console.log(el.parentElement.lastElementChild.value);
+                            }
+
+                            if(el.parentElement.lastElementChild.nodeName == "SELECT" && el.parentElement.lastElementChild.value == 3){
+                                //console.log("jjjjj");
+                                el.removeAttribute("disabled")
+                            }
+
+                            if(el.parentElement.lastElementChild.previousElementSibling.previousElementSibling.previousElementSibling.nodeName == "SELECT" && el.parentElement.lastElementChild.previousElementSibling.previousElementSibling.previousElementSibling.value == 3){
+                                //el.removeAttribute("disabled")
+                                el.removeAttribute("disabled")
+                            }
+
+                        }
+                    });
+
+
+                    data.forEach(de => {
+                        
+                        if(de.id == "estadoAr"){
+                            //console.log(de[de.id]);
+                            if(de[de.id] == 3){
+                                document.querySelector("[data-id='fila3']").style.display = "none";
+                            }
+                        }
+                        if(de.id == "estadoGuH"){
+                            //console.log(de[de.id]);
+                            if(de[de.id] == 3){
+                                document.querySelector("[data-id='fila6']").style.display = "none";
+                            }
+                        }
+                        if(de.id == "estadoGuE"){
+                            //console.log(de[de.id]);
+                            if(de[de.id] == 3){
+                                document.querySelector("[data-id='fila11']").style.display = "none";
+                            }
+                        }
+
+                    })
+
+                    
+
+
+                   
+                };
+
+                requestGetAll.onerror = function(event) {
+                console.log("Error al obtener los datos");
+                };
+            };
+        }
+
+        function obtenerDatosPersonas() {
+            // Abrir la base de datos
+            var request = indexedDB.open("miBaseDeDatos2", 1);
+
+            request.onsuccess = function(event) {
+                var db = event.target.result;
+
+                // Iniciar una transacción de lectura
+                var transaction = db.transaction(["personas"], "readonly");
+
+                // Obtener el almacén de objetos
+                var objectStore = transaction.objectStore("personas");
+
+                // Obtener todos los objetos del almacén
+                var requestGetAll = objectStore.getAll();
+
+
+                requestGetAll.onsuccess = function(event) {
+                    var data = event.target.result;
+                    console.log("Datos obtenidos. personas...:", data);
+
+                    // Simular el evento de click en el botón
+                    var event = new MouseEvent('click', {
+                        view: window,
+                        bubbles: true,
+                        cancelable: true
+                    });
+
+                    for (let i = 0; i < data.length/2; i++) {
+                        button.dispatchEvent(event);
+                    }
+
+                    let inputs = document.querySelectorAll("input");
+
+                    inputs.forEach(el => {
+                        data.forEach(de => {
+                            if(el.getAttribute("data-id") == de.id){
+                                //console.log(el);
+                                el.value = de[de.id]
+                            }
+                        })
+                    });
+
+                };
+
+                requestGetAll.onerror = function(event) {
+                console.log("Error al obtener los datos");
+                };
+            };
+        }
+
+
+        obtenerDatosLogin()
+        obtenerDatosTiempo()
+        obtenerDatosPersonas()
+        
+        // Añadir datos a la base de datos
+        function agregarDatosv2(preg, linkBase, valores) {
+            // Abrir la base de datos
+            var request = indexedDB.open("miBaseDeDatos2", 1);
+
+            request.onsuccess = function(event) {
+                var db = event.target.result;
+
+                // Iniciar una transacción de escritura
+                var transaction = db.transaction([linkBase], "readwrite");
+
+                // Obtener el almacén de objetos
+                var objectStore = transaction.objectStore(linkBase);
+
+
+                var data = ''
+                var objeto = ''
+                //obtengo todos los valores
+                var requestGetAll = objectStore.getAll();
+                requestGetAll.onsuccess = function(event) {
+                    data = event.target.result;
+                    //console.log("Datos obtenidos desde agregar:", data.length);
+
+                    // Crear un objeto para almacenar en el almacén
+                    //objeto = { id: preg , descipcion: valores };
+                    objeto = { id:preg, [preg]: valores};
+
+                    // Añadir el objeto al almacén
+                    var requestAdd = objectStore.add(objeto);
+
+                    requestAdd.onsuccess = function(event) {
+                    console.log("Datos agregados correctamente");
+                    };
+
+                    requestAdd.onerror = function(event) {
+                    console.log("Error al agregar los datos");
+                    };
+                };
+            
+                
+            };
+        }
+
+        // agregarDatosv2("1a", "tiempo", "yuuuuihu")
+        // agregarDatosv2("2a", "tiempo", "kkkkk")
+
+
+
+        function editarRegistro(registro,linkBase, valorAguardar) {
+            // Open a connection to the IndexedDB database
+            const request = indexedDB.open('miBaseDeDatos2', 1);
+
+            request.onerror = function(event) {
+                console.error('Database error: ' + event.target.errorCode);
+            };
+
+            request.onsuccess = function(event) {
+                const db = event.target.result;
+
+                // Create a transaction to perform the update operation
+                const transaction = db.transaction([linkBase], 'readwrite');
+                const objectStore = transaction.objectStore(linkBase);
+
+                // Retrieve the record you want to update
+                const getRequest = objectStore.get(registro);
+
+                getRequest.onerror = function(event) {
+                    console.error('Error retrieving record: ' + event.target.errorCode);
+                };
+
+                getRequest.onsuccess = function(event) {
+                    const record = event.target.result;
+
+                    console.log("record",record);
+
+                    //let textarea = document.querySelector("#observacion")
+                    
+                    record[registro] = valorAguardar
+
+                    // Update the record in the object store
+                    const updateRequest = objectStore.put(record);
+
+                    updateRequest.onerror = function(event) {
+                    console.error('Error updating record: ' + event.target.errorCode);
+                    };
+
+                    updateRequest.onsuccess = function(event) {
+                    console.log('Record updated successfully');
+                    //limpiarEdit()
+                    };
+                };
+            };
+        }
+
+        //editarRegistro(preg, valor)
+        //editarRegistro("estadoAr", "tiempo", 60)
+
+
+        document.querySelector(".table-responsive").addEventListener("change", e=>{
+            //console.log(e.target.nodeName)
+            let preg = e.target.getAttribute("data-id")
+            let valor =  e.target.closest(".tdobyprev").getAttribute("data-bd")
+
+            if(e.target.nodeName == 'SELECT'){
+                
+            
+                console.log("checkFF",preg, valor, e.target.value)
+
+                editarRegistro(preg, valor, e.target.value)
+                agregarDatosv2(preg, valor, e.target.value)
+                
+
+            }
+
+           
+
+            if(e.target.nodeName == 'INPUT' && e.target.getAttribute("data-insertar") == "insert"){
+                //console.log(e.target.value);
+                //let preg = e.target.getAttribute("data-id")
+                agregarDatosv2(preg, "personas", e.target.value)
+                editarRegistro(preg, "personas", e.target.value)
+            }else{
+                agregarDatosv2(preg, valor, e.target.value)
+                editarRegistro(preg, valor, e.target.value)
+            }
+
+            if(e.target.nodeName == 'TEXTAREA'){
+                console.log(e.target.value);
+
+                agregarDatosv2(preg, valor, e.target.value)
+                editarRegistro(preg, valor, e.target.value)
+            }
+
+          
+
+        })
+
+
+        document.querySelector(".table-responsive").addEventListener("click", e=>{
+            let valor =  e.target.closest(".tdobyprev").getAttribute("data-bd")
+
+            if(e.target.nodeName == 'BUTTON'){
+
+                let pregunta = e.target.getAttribute("data-id")
+                let valorInput = e.target.nextElementSibling.nextElementSibling.nextElementSibling.value
+     
+                agregarDatosv2(pregunta, valor, valorInput)
+                editarRegistro(pregunta, valor, valorInput)
+            }
+
+        })
+
+
+        let table = document.querySelector("table")
+
+        table.addEventListener("change", e=>{
+            if(e.target.nodeName == "SELECT"){
+                
+                if(e.target.parentElement.firstElementChild.nodeName == "BUTTON" && e.target.value == 3 ){
+                    e.target.parentElement.firstElementChild.removeAttribute("disabled")
+                }
+            }
+            
+        })
+
+    </script>
+</body>
+</html>
