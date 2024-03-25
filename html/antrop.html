@@ -379,8 +379,11 @@ thead th {
                             <br><br>
                             <select class="form-select seleccionar-resultado2 d-inline" style="width: 200px;" data-id="estadoAr">
                                 <option value="0">SELECCIONAR</option>                                
-                                <option value="3">RECHAZO</option>                                
+                                <option value="3">RECHAZO</option>       
+                                <option value="6">OTRO</option>                         
                             </select>
+                            <br><br>
+                            <input type="text" class="form-control input-especificar2 d-inline" style="width: 200px; display: none;" data-id="estadoAr_esp">
                         </td>
                     </tr>
 
@@ -513,6 +516,8 @@ thead th {
                                 <option value="3">RECHAZO</option>
                                 <option value="6">OTRO</option>
                             </select>
+                            <br><br>
+                            <input type="text" class="form-control input-especificar10 d-inline" style="width: 200px; display: none;" data-id="estadoGuE_esp">
                         </td>                        
                     </tr>
 
@@ -531,8 +536,22 @@ thead th {
                         </td>
                     </tr>
 
-                    <tr  class="guardado"> 
+                    <tr data-id='fila12'> 
                         <td>12</td>
+                        <td>¿RECIBIO APOYO PARA EL GUARDADO DE EQUIPOS (TALLIMETRO Y BALANZA)? <br>
+
+                        <td class="align-middle">
+                            <select class="form-select seleccionar-resultado10 d-inline" style="width: 200px;" data-id="estadoGuA">
+                                <option value="1">SI, DE LA SUPERV</option>
+                                <option value="2">SI, DE LA ENTREV.</option>
+                                <option value="3">SI, DE AMBAS</option>
+                                <option value="4">NO</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr  class="guardado"> 
+                        <td>13</td>
                         <td>REGISTRE FECHA  Y HORA DE TERMINO DEL GUARDADO DE EQUIPOS <br>
 
                            <strong>EJECUCIÓN DE LAS MEDICIONES:</strong> CONSIDERAR LA HORA DE TERMINO CUANDO LA ANTROPOMETRISTA YA CULMINO TODA SU ACTIVIDAD EN ESA VISITA. (NO CONSIDERAR LA ESPERA A LA  ENTREVISTADORA PARA SALIR DE LA VIVIENDA)</td>
@@ -638,6 +657,44 @@ seleccionarResultado5.addEventListener('change', function() {
     } else {
         inputEspecificar5.style.display = 'none';
         inputEspecificar5.disabled = true;
+    }
+});
+
+/*SELECC 2*/
+
+var seleccionarResultado2 = document.querySelector('.seleccionar-resultado2');
+var inputEspecificar2 = document.querySelector('.input-especificar2');
+
+if (seleccionarResultado2.value != '6') {
+    inputEspecificar2.disabled = true;
+}
+
+seleccionarResultado2.addEventListener('change', function() {
+    if (seleccionarResultado2.value === '6') {
+        inputEspecificar2.style.display = 'inline';
+        inputEspecificar2.disabled = false;
+    } else {
+        inputEspecificar2.style.display = 'none';
+        inputEspecificar2.disabled = true;
+    }
+});
+
+/*SELECC 10*/
+
+var seleccionarResultado10 = document.querySelector('.seleccionar-resultado10');
+var inputEspecificar10 = document.querySelector('.input-especificar10');
+
+if (seleccionarResultado10.value != '6') {
+    inputEspecificar10.disabled = true;
+}
+
+seleccionarResultado10.addEventListener('change', function() {
+    if (seleccionarResultado10.value === '6') {
+        inputEspecificar10.style.display = 'inline';
+        inputEspecificar10.disabled = false;
+    } else {
+        inputEspecificar10.style.display = 'none';
+        inputEspecificar10.disabled = true;
     }
 });
 
@@ -955,6 +1012,7 @@ document.addEventListener("DOMContentLoaded", function() {
         //inputOrden.setAttribute("data-item", `o${i}`)
         //inputOrden.setAttribute("data-id", `o`)
         inputOrden.setAttribute("data-insertar", `insert`)
+        inputOrden.setAttribute("maxlength", `2`)
         inputOrden.placeholder = 'N° Orden';
         inputOrden.style.width = '200px';
         inputOrden.style.display = 'inline';
@@ -1004,12 +1062,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
     var selectElement3 = document.querySelector(".seleccionar-resultado10");
     var rowToShow3 = document.querySelector("[data-id='fila11']");
+    var rowToShow4 = document.querySelector("[data-id='fila12']");
 
     selectElement3.addEventListener("change", function() {
         if (this.value === "3") {
             rowToShow3.style.display = "none";
+            rowToShow4.style.display = "none";
         } else {
             rowToShow3.style.display = "table-row";
+            rowToShow4.style.display = "table-row";
         }
     });
 
@@ -1164,6 +1225,9 @@ document.addEventListener("DOMContentLoaded", function() {
                             //console.log(de[de.id]);
                             if(de[de.id] == 3){
                                 document.querySelector("[data-id='fila11']").style.display = "none";
+                            }
+                            if(de[de.id] == 3){
+                                document.querySelector("[data-id='fila12']").style.display = "none";
                             }
                         }
 

@@ -165,11 +165,16 @@
                     <select name="select" class="seleclas" id="nomconglo"></select>
                     <select name="select" class="seleclas" id="nomvivi"></select>
                     <select name="select" class="seleclas" id="nomhog">
-                        <option value="01" class="recohog">Hogar - 01</option>
-                        <option value="02" class="recohog">Hogar - 02</option>
-                        <option value="03" class="recohog">Hogar - 03</option>
-                        <option value="04" class="recohog">Hogar - 04</option>
-                        <option value="05" class="recohog">Hogar - 05</option>
+                        <option value="1" class="recohog">Hogar - 1</option>
+                        <option value="2" class="recohog">Hogar - 2</option>
+                        <option value="3" class="recohog">Hogar - 3</option>
+                        <option value="4" class="recohog">Hogar - 4</option>
+                        <option value="5" class="recohog">Hogar - 5</option>
+                    </select>
+                    <select name="select" class="seleclas" id="codvisit">
+                        <option value="1" class="recovisit">Visita - 1</option>
+                        <option value="2" class="recovisit">Visita - 2</option>
+                        <option value="3" class="recovisit">Visita - 3</option>
                     </select>
 					<button id="btningresar">Ingresar</button>
 				</form>
@@ -240,7 +245,7 @@
 
 
         // Añadir datos a la base de datos
-        function agregarDatosv2(preg, ccdd, equipo, codsup, nomsup, codencu, cargoencu , nomencu, codconglo, codvivi, codhog) {
+        function agregarDatosv2(preg, ccdd, equipo, codsup, nomsup, codencu, cargoencu , nomencu, codconglo, codvivi, codhog, codvisit) {
             // Abrir la base de datos
             var request = indexedDB.open("miBaseDeDatos2", 1);
 
@@ -274,13 +279,15 @@
                               ,nomencu: nomencu
                               ,codconglo: codconglo
                               ,codvivi: codvivi
-                              ,codhog: codhog};
+                              ,codhog: codhog
+                              ,codvisit:codvisit  
+                            };
 
                     // Añadir el objeto al almacén
 
                     data.forEach(el => {
                         console.log("dd")
-                        if(el.codconglo == codconglo &&  el.codencu == codencu  && el.codsup == codsup && el.codvivi == codvivi && el.codhog == codhog){
+                        if(el.codconglo == codconglo &&  el.codencu == codencu  && el.codsup == codsup && el.codvivi == codvivi && el.codhog == codhog && el.codvisit == codvisit){
                             console.log("es el mismo registro continuaiiiiiiiiii")
                             console.log("siguiente pagina al ser el mismo registro....")
                             setTimeout(() => {
@@ -474,7 +481,7 @@
 
                     if (completedCount === objectStoreCount) {
                         console.log("datos a exportar",allData);
-                        let nomarchi = `${allData.usuariosbd[0].codsup}_${allData.usuariosbd[0].codconglo}_${allData.usuariosbd[0].codvivi}_${allData.usuariosbd[0].codhog}_${allData.usuariosbd[0].codencu}`
+                        let nomarchi = `${allData.usuariosbd[0].codsup}_${allData.usuariosbd[0].codconglo}_${allData.usuariosbd[0].codvivi}_${allData.usuariosbd[0].codhog}_${allData.usuariosbd[0].codvisit}_${allData.usuariosbd[0].codencu}`
                         
                         console.error("nomarchi", nomarchi, allData)
                         //delete allData.usuariosfinalbd
@@ -501,9 +508,12 @@
                             let codhog = document.querySelector("#nomhog")
                             let codhog2 = codhog.options[codhog.selectedIndex].value
 
+                            let codvisit = document.querySelector("#codvisit")
+                            let codvisit2 = codvisit.options[codvisit.selectedIndex].value
+
                             console.log("iiii",codconglo2, codvivi2, codhog2 )
 
-                            agregarDatosv2(1,ccdd, equipo, codsuper,nomsuper, codencu,cargoencu, nomencu, codconglo2, codvivi2, codhog2 )
+                            agregarDatosv2(1,ccdd, equipo, codsuper,nomsuper, codencu,cargoencu, nomencu, codconglo2, codvivi2, codhog2, codvisit2 )
                             console.log("ingreso true")
                         }
 
@@ -731,6 +741,12 @@
 
                         document.querySelectorAll(".recohog").forEach(el => {
                             if(el.value == data[0].codhog){
+                                el.setAttribute("selected", true)
+                            }
+                        });
+
+                        document.querySelectorAll(".recovisit").forEach(el => {
+                            if(el.value == data[0].codvisit){
                                 el.setAttribute("selected", true)
                             }
                         });
@@ -1019,26 +1035,29 @@
             let codhog = document.querySelector("#nomhog")
             let codhog2 = codhog.options[codhog.selectedIndex].value
 
-            console.log("iiii",codconglo2, codvivi2, codhog2 )
+            let codvisit = document.querySelector("#codvisit")
+            let codvisit2 = codvisit.options[codvisit.selectedIndex].value
+
+            console.log("iiii",codconglo2, codvivi2, codhog2, codvisit2 )
 
             
 
-            let peticion = await fetchData(codsuper,codencu, codconglo2, codvivi2,codhog2 );
+            let peticion = await fetchData(codsuper,codencu, codconglo2, codvivi2,codhog2, codvisit2 );
 
-            console.log("es la peticionnnnnnnnn",codsuper,codencu, codconglo2, codvivi2,codhog2 )
+            console.log("es la peticionnnnnnnnn",codsuper,codencu, codconglo2, codvivi2,codhog2, codvisit2 )
             
             
 
 
             if(peticion.length == 0){
                 console.log("no existe en la bd servidor", peticion)
-                agregarDatosv2(1,ccdd,equipo, codsuper,nomsuper, codencu,cargoencu, nomencu, codconglo2, codvivi2 , codhog2)
+                agregarDatosv2(1,ccdd,equipo, codsuper,nomsuper, codencu,cargoencu, nomencu, codconglo2, codvivi2 , codhog2, codvisit2)
             }else if(peticion == "nc"){
                 console.log("no tienes conexion a internet...........")
                 console.log(peticion)
                 var userConfirmed = confirm("No cuentas con conexión a internet:\n click en 'Cancelar' si desea retomar con una evaluación, que ya existe, busque el archivo en descargas e impórtelo \n Click en 'Aceptar' si es una evaluación nueva.");
                 if (userConfirmed) {
-                    agregarDatosv2(1,ccdd,equipo, codsuper,nomsuper, codencu,cargoencu, nomencu, codconglo2, codvivi2 , codhog2)
+                    agregarDatosv2(1,ccdd,equipo, codsuper,nomsuper, codencu,cargoencu, nomencu, codconglo2, codvivi2 , codhog2, codvisit2)
                 } else {
                     // Cancel the deletion
                 }
@@ -1063,7 +1082,8 @@
                         "cargoencu":peticion[0].cargoencu,
                         "codconglo":peticion[0].codconglo,
                         "codvivi":peticion[0].codvivi,
-                        "codhog":peticion[0].codhog
+                        "codhog":peticion[0].codhog,
+                        "codvisit":peticion[0].codvisit
                     }],
                     },
                     {"tiempo":[
@@ -1090,7 +1110,7 @@
 
                 Object.entries(peticion[0]).forEach(([key, value]) => {
                     //console.log(key,value)
-                    if(key != "codconglo" && key != "codencu" && key != "codhog" && key != "codsup" && key != "codvivi" && key != "ccdd" && key != "equipo" && key != "estado" && key != "fecha" 
+                    if(key != "codconglo" && key != "codencu" && key != "codhog" && key != "codvisit" && key != "codsup" && key != "codvivi" && key != "ccdd" && key != "equipo" && key != "estado" && key != "fecha" 
                     && key != "id" && key != "nomencu" && key != "nomsup" && 
                     key != "resultadoA" &&
                     key != "resultadoA_esp" &&
@@ -1156,10 +1176,10 @@
 
        
 
-        async function fetchData(codsup,codencu,codconglo,codvivi,codhog) {
+        async function fetchData(codsup,codencu,codconglo,codvivi,codhog, codvisit) {
             try {
                 const response = 
-                await fetch(`https://aplications.inei.gob.pe/WebEndesEncuesta/public/api/tiempo?codsup=${codsup}&codencu=${codencu}&codconglo=${codconglo}&codvivi=${codvivi}&codhog=${codhog}`); // Realiza la solicitud HTTP y espera la respuesta
+                await fetch(`https://aplications.inei.gob.pe/WebEndesEncuesta/public/api/tiempo?codsup=${codsup}&codencu=${codencu}&codconglo=${codconglo}&codvivi=${codvivi}&codhog=${codhog}&codvisit=${codvisit}`); // Realiza la solicitud HTTP y espera la respuesta
                 
                
                 if (!response.ok) {
@@ -1352,7 +1372,7 @@
             var obj = JSON.parse(event.target.result);
             
             console.log(obj)
-            let confirmar = confirm(`Desea retomar con la evaluacion de\n la Srta: ${obj.usuariosbd[0].nomencu} \nconglomerado: ${obj.usuariosbd[0].codconglo} \nVivienda: ${obj.usuariosbd[0].codvivi} \nVivienda: ${obj.usuariosbd[0].codhog}`);
+            let confirmar = confirm(`Desea retomar con la evaluacion de\n la Srta: ${obj.usuariosbd[0].nomencu} \nconglomerado: ${obj.usuariosbd[0].codconglo} \nVivienda: ${obj.usuariosbd[0].codvivi} \nHogar: ${obj.usuariosbd[0].codhog} \nVisita: ${obj.usuariosbd[0].codvisit}`);
         
             console.log(confirmar)
 
