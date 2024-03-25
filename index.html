@@ -1095,6 +1095,9 @@
                         {"id": "fecha_iniMed" , "fecha_iniMed" : peticion[0].fecha_iniMed},
                         {"id": "fecha_iniGuH"  , "fecha_iniGuH" : peticion[0].fecha_iniGuH},
                         {"id": "estadoGuH" , "estadoGuH" : peticion[0].estadoGuH},
+                        {"id":'estadoAr_esp', "estadoAr_esp" :peticion[0].estadoAr_esp},
+                        {"id":'estadoGuE_esp', "estadoGuE_esp" :peticion[0].estadoGuE_esp},
+                        {"id":'estadoGuA', "estadoGuA" :peticion[0].estadoGuA},
                         {"id": "estadoGuH_esp" , "estadoGuH_esp" : peticion[0].estadoGuH_esp},
                         {"id": "fecha_finGuH"  , "fecha_finGuH" : peticion[0].fecha_finGuH},
                         {"id": "fecha_iniRes" , "fecha_iniRes" : peticion[0].fecha_iniRes},
@@ -1126,6 +1129,9 @@
                     key != "fecha_finRes" &&
                     key != "fecha_iniGuE" &&
                     key != "estadoGuE" &&
+                    key != "estadoAr_esp" &&
+                    key != "estadoGuE_esp" &&
+                    key != "estadoGuA" &&
                     key != "fecha_finGuE" && 
                     key != "fecha_finMed" &&
                     key != "observacion" && key != "cargoencu" 
