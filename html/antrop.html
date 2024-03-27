@@ -318,6 +318,7 @@ thead th {
                   <li class="breadcrumb-item" id="nomeconglo">4268</li>
                   <li class="breadcrumb-item" id="nomevivi">001</li>
                   <li class="breadcrumb-item" id="nomehog">01</li>
+                  <li class="breadcrumb-item">N° <span id="codvisit">1</span></li>
                 </ol>
               </nav>
             </div>
@@ -542,6 +543,7 @@ thead th {
 
                         <td class="align-middle">
                             <select class="form-select seleccionar-resultado10 d-inline" style="width: 200px;" data-id="estadoGuA">
+                                <option value="0">SELECCIONAR</option>
                                 <option value="1">1. SI, DE LA SUPERV</option>
                                 <option value="2">2. SI, DE LA ENTREV.</option>
                                 <option value="3">3. SI, DE AMBAS</option>
@@ -1032,6 +1034,9 @@ document.addEventListener("DOMContentLoaded", function() {
         inputNombre.setAttribute("data-id", `n${cont.length}`)
         inputOrden.setAttribute("data-id", `o${cont.length}`)
         //console.log();
+
+
+        eventoAdd();
     })
 
 
@@ -1040,7 +1045,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var rowToShow = document.querySelector("[data-id='fila3']");
 
     selectElement.addEventListener("change", function() {
-        if (this.value === "3") {
+        if (this.value === "3" || this.value === "6") {
             rowToShow.style.display = "none";
         } else {
             rowToShow.style.display = "table-row";
@@ -1052,7 +1057,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var rowToShow2 = document.querySelector("[data-id='fila6']");
 
     selectElement2.addEventListener("change", function() {
-        if (this.value === "3") {
+        if (this.value === "3" || this.value === "6") {
             rowToShow2.style.display = "none";
         } else {
             rowToShow2.style.display = "table-row";
@@ -1065,7 +1070,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var rowToShow4 = document.querySelector("[data-id='fila12']");
 
     selectElement3.addEventListener("change", function() {
-        if (this.value === "3") {
+        if (this.value === "3" || this.value === "6") {
             rowToShow3.style.display = "none";
             rowToShow4.style.display = "none";
         } else {
@@ -1073,6 +1078,28 @@ document.addEventListener("DOMContentLoaded", function() {
             rowToShow4.style.display = "table-row";
         }
     });
+
+
+
+    document.querySelector(".seleccionar-resultado2").addEventListener('change', e=>{
+        if(e.target.value == 0 || e.target.value == 3 ){
+            document.querySelector("[data-id='estadoAr_esp']").value = ""
+        }
+    })
+
+    document.querySelector(".seleccionar-resultado5").addEventListener('change', e=>{
+        if(e.target.value == 0 || e.target.value == 3 ){
+            document.querySelector("[data-id='estadoGuH_esp']").value = ""
+        }
+    })
+
+    document.querySelector(".seleccionar-resultado10").addEventListener('change', e=>{
+        if(e.target.value == 0 || e.target.value == 3 ){
+            document.querySelector("[data-id='estadoGuE_esp']").value = ""
+        }
+    })
+
+    
 
 
 });
@@ -1112,7 +1139,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     document.querySelector("#nomeconglo").textContent = data[0].codconglo
                     document.querySelector("#nomevivi").textContent = data[0].codvivi
                     document.querySelector("#nomehog").textContent = data[0].codhog
-                    
+                    document.querySelector("#codvisit").textContent =  data[0].codvisit
+
                     data[0].cargoencu == 22 ? window.location.href = "supervisora.html":""
                 };
 
@@ -1211,22 +1239,22 @@ document.addEventListener("DOMContentLoaded", function() {
                         
                         if(de.id == "estadoAr"){
                             //console.log(de[de.id]);
-                            if(de[de.id] == 3){
+                            if(de[de.id] == 3 || de[de.id] == 6){
                                 document.querySelector("[data-id='fila3']").style.display = "none";
                             }
                         }
                         if(de.id == "estadoGuH"){
                             //console.log(de[de.id]);
-                            if(de[de.id] == 3){
+                            if(de[de.id] == 3 || de[de.id] == 6){
                                 document.querySelector("[data-id='fila6']").style.display = "none";
                             }
                         }
                         if(de.id == "estadoGuE"){
                             //console.log(de[de.id]);
-                            if(de[de.id] == 3){
+                            if(de[de.id] == 3 || de[de.id] == 6){
                                 document.querySelector("[data-id='fila11']").style.display = "none";
                             }
-                            if(de[de.id] == 3){
+                            if(de[de.id] == 3 || de[de.id] == 6){
                                 document.querySelector("[data-id='fila12']").style.display = "none";
                             }
                         }
@@ -1288,6 +1316,13 @@ document.addEventListener("DOMContentLoaded", function() {
                         })
                     });
 
+
+
+
+                    eventoAdd()
+                    
+
+
                 };
 
                 requestGetAll.onerror = function(event) {
@@ -1301,6 +1336,19 @@ document.addEventListener("DOMContentLoaded", function() {
         obtenerDatosTiempo()
         obtenerDatosPersonas()
         
+
+        function eventoAdd() {
+            let numOrdens = document.querySelectorAll(".contador")
+
+            numOrdens.forEach(el => {
+                el.addEventListener('change', e=>{
+                    console.log(el.value.length == 1);
+                    el.value.length == 1 ? el.value = `0${el.value}`:el.value 
+                })        
+            });
+        }
+
+
         // Añadir datos a la base de datos
         function agregarDatosv2(preg, linkBase, valores) {
             // Abrir la base de datos
