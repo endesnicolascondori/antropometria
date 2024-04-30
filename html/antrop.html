@@ -702,6 +702,20 @@ seleccionarResultado10.addEventListener('change', function() {
 
 
 document.addEventListener("DOMContentLoaded", function() {
+
+    let inputDesactivados = document.querySelectorAll("input")
+
+    inputDesactivados.forEach(el => {
+        if (el.getAttribute("data-id") == "fecha_iniAr" || el.getAttribute("data-id") == "fecha_iniMed" || el.getAttribute("data-id") == "fecha_iniGuH"
+        || el.getAttribute("data-id") == "fecha_iniRes" || el.getAttribute("data-id") == "fecha_finRes" || el.getAttribute("data-id") == "fecha_iniGuE" 
+        || el.getAttribute("data-id") == "fecha_finGuE" ) {
+            el.setAttribute("disabled", true)
+        }
+    });
+
+    console.log("dd", inputDesactivados);
+
+
     // Función para obtener la fecha actual en formato "YYYY-MM-DD"
     function obtenerFechaHoraActual() {
         const ahora = new Date();
@@ -733,11 +747,11 @@ document.addEventListener("DOMContentLoaded", function() {
         //     alert('¡Recuerda marcar la fecha final!');
         // }, 900000); // 60000 milisegundos equivalen a 1 minuto
 
-        temporizador = setTimeout(function() {
-        var temporalizadorModal = new bootstrap.Modal(document.getElementById('temporalizadorModal'));
-            document.getElementById('temporalizadorMessage').innerText = '¡Recuerda marcar la fecha final!';
-            temporalizadorModal.show();
-        }, 900000);
+        // temporizador = setTimeout(function() {
+        // var temporalizadorModal = new bootstrap.Modal(document.getElementById('temporalizadorModal'));
+        //     document.getElementById('temporalizadorMessage').innerText = '¡Recuerda marcar la fecha final!';
+        //     temporalizadorModal.show();
+        // }, 900000);
     });
 
     // "Fecha Final 3"
@@ -778,11 +792,11 @@ document.addEventListener("DOMContentLoaded", function() {
         //     alert('¡Recuerda marcar la fecha final!');
         // }, 900000); // 60000 milisegundos equivalen a 1 minuto
 
-        temporizador = setTimeout(function() {
-        var temporalizadorModal = new bootstrap.Modal(document.getElementById('temporalizadorModal'));
-            document.getElementById('temporalizadorMessage').innerText = '¡Recuerda marcar la fecha final!';
-            temporalizadorModal.show();
-        }, 900000);
+        // temporizador = setTimeout(function() {
+        // var temporalizadorModal = new bootstrap.Modal(document.getElementById('temporalizadorModal'));
+        //     document.getElementById('temporalizadorMessage').innerText = '¡Recuerda marcar la fecha final!';
+        //     temporalizadorModal.show();
+        // }, 900000);
     });
 
     // "Fecha Final 6"
@@ -836,11 +850,11 @@ document.addEventListener("DOMContentLoaded", function() {
         //     alert('¡Recuerda marcar la fecha final!');
         // }, 900000); // 60000 milisegundos equivalen a 1 minuto
 
-        temporizador = setTimeout(function() {
-        var temporalizadorModal = new bootstrap.Modal(document.getElementById('temporalizadorModal'));
-            document.getElementById('temporalizadorMessage').innerText = '¡Recuerda marcar la fecha final!';
-            temporalizadorModal.show();
-        }, 900000);
+        // temporizador = setTimeout(function() {
+        // var temporalizadorModal = new bootstrap.Modal(document.getElementById('temporalizadorModal'));
+        //     document.getElementById('temporalizadorMessage').innerText = '¡Recuerda marcar la fecha final!';
+        //     temporalizadorModal.show();
+        // }, 900000);
     });
 
     // "Fecha Final 8"
@@ -878,11 +892,11 @@ document.addEventListener("DOMContentLoaded", function() {
         //     alert('¡Recuerda marcar la fecha final!');
         // }, 900000); // 60000 milisegundos equivalen a 1 minuto
 
-        temporizador = setTimeout(function() {
-        var temporalizadorModal = new bootstrap.Modal(document.getElementById('temporalizadorModal'));
-            document.getElementById('temporalizadorMessage').innerText = '¡Recuerda marcar la fecha final!';
-            temporalizadorModal.show();
-        }, 900000);
+        // temporizador = setTimeout(function() {
+        // var temporalizadorModal = new bootstrap.Modal(document.getElementById('temporalizadorModal'));
+        //     document.getElementById('temporalizadorMessage').innerText = '¡Recuerda marcar la fecha final!';
+        //     temporalizadorModal.show();
+        // }, 900000);
     });
 
     // "Fecha Final 11"
@@ -920,11 +934,11 @@ document.addEventListener("DOMContentLoaded", function() {
         //     alert('¡Recuerda marcar la fecha final!');
         // }, 900000); // 60000 milisegundos equivalen a 1 minuto
 
-        temporizador = setTimeout(function() {
-        var temporalizadorModal = new bootstrap.Modal(document.getElementById('temporalizadorModal'));
-            document.getElementById('temporalizadorMessage').innerText = '¡Recuerda marcar la fecha final!';
-            temporalizadorModal.show();
-        }, 900000);
+        // temporizador = setTimeout(function() {
+        // var temporalizadorModal = new bootstrap.Modal(document.getElementById('temporalizadorModal'));
+        //     document.getElementById('temporalizadorMessage').innerText = '¡Recuerda marcar la fecha final!';
+        //     temporalizadorModal.show();
+        // }, 900000);
     });
 
     // "Fecha Final 12"
