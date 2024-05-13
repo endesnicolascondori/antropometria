@@ -408,7 +408,7 @@ thead th {
                         <td>REGISTRE FECHA  Y HORA DE INICIO DE MEDICIONES <br><br>
                             <strong>EJECUCIÓN DE MEDICIONES:</strong> CONSIDERAR LA FECHA Y HORA DE INICIO CUANDO INICIA LA EXPLICACIÓN FORMALMENTE PARA LA APLICACIÓN DE MEDICIONES.</td>
                         <td class="align-middle">
-                            <button type="button" class="btn btn-primary btn-inicio4 d-inline" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 200px;" data-id="fecha_iniMed">
+                            <button type="button" class="btn btn-primary btn-fin4 btn-inicio4 d-inline" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 200px;" data-id="fecha_iniMed">
                                 Fecha Inicial
                             </button>
                             <br><br>
@@ -708,257 +708,21 @@ document.addEventListener("DOMContentLoaded", function() {
     inputDesactivados.forEach(el => {
         if (el.getAttribute("data-id") == "fecha_iniAr" || el.getAttribute("data-id") == "fecha_iniMed" || el.getAttribute("data-id") == "fecha_iniGuH"
         || el.getAttribute("data-id") == "fecha_iniRes" || el.getAttribute("data-id") == "fecha_finRes" || el.getAttribute("data-id") == "fecha_iniGuE" 
-        || el.getAttribute("data-id") == "fecha_finGuE" ) {
+        || el.getAttribute("data-id") == "fecha_finGuE" || el.getAttribute("data-id") == "fecha_finAr" ) {
             el.setAttribute("disabled", true)
         }
     });
 
-    console.log("dd", inputDesactivados);
+    //console.log("dd", inputDesactivados);
 
 
-    // Función para obtener la fecha actual en formato "YYYY-MM-DD"
-    function obtenerFechaHoraActual() {
-        const ahora = new Date();
-        const fecha = ahora.toLocaleDateString();
-        const hora = ahora.toLocaleTimeString();
-        const fechaHora = `${fecha} ${hora}`;
-        return fechaHora;
-    }
+    
 
-    // Variable para almacenar el identificador del temporizador
-    var temporizador;
-    var fechaInicioMarcada;
-    var fechaInicioMarcada2;
-    var fechaInicioMarcada3;
-    var fechaInicioMarcada4;
-    var fechaInicioMarcada5;
+    
+    
 
-    // "Fecha Inicial 2"
-    document.querySelector(".btn-inicio2").addEventListener("click", function() {
-        var fechaActual = obtenerFechaHoraActual();        
-        document.querySelector(".fecha-inicio2-input").value = fechaActual;        
-        this.disabled = true; 
-        document.querySelector(".fecha-inicio2-input").disabled = true;
-        // Marcar que la fecha inicial ha sido marcada
-        fechaInicioMarcada = true;
-        
-        // // Establecer un temporizador para alertar después de un minuto
-        // temporizador = setTimeout(function() {
-        //     alert('¡Recuerda marcar la fecha final!');
-        // }, 900000); // 60000 milisegundos equivalen a 1 minuto
-
-        // temporizador = setTimeout(function() {
-        // var temporalizadorModal = new bootstrap.Modal(document.getElementById('temporalizadorModal'));
-        //     document.getElementById('temporalizadorMessage').innerText = '¡Recuerda marcar la fecha final!';
-        //     temporalizadorModal.show();
-        // }, 900000);
-    });
-
-    // "Fecha Final 3"
-    document.querySelector(".btn-fin3").addEventListener("click", function() {
-        // Limpiar el temporizador si se marca la fecha final antes del minuto
-        clearTimeout(temporizador);
-        
-        // Verificar si la fecha inicial ha sido marcada
-        if (!fechaInicioMarcada) {
-            // Mostrar el modal de alerta
-            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
-            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
-            alertModal.show();
-            return; // Detener la ejecución si la fecha inicial no ha sido marcada
-        }
-        var fechaActual = obtenerFechaHoraActual();        
-        document.querySelector(".fecha-fin3-input").value = fechaActual;
-        this.disabled = true; 
-        document.querySelector(".fecha-fin3-input").disabled = true;
-    });
-
-
-
-
-/*SEGUNDO TRAMO DE FECHA*/
-
-    // "Fecha Inicial 5"
-    document.querySelector(".btn-inicio5").addEventListener("click", function() {
-        var fechaActual = obtenerFechaHoraActual();        
-        document.querySelector(".fecha-inicio5-input").value = fechaActual;        
-        this.disabled = true; 
-        document.querySelector(".fecha-inicio5-input").disabled = true;
-        // Marcar que la fecha inicial ha sido marcada
-        fechaInicioMarcada2 = true;
-        
-        // // Establecer un temporizador para alertar después de un minuto
-        // temporizador = setTimeout(function() {
-        //     alert('¡Recuerda marcar la fecha final!');
-        // }, 900000); // 60000 milisegundos equivalen a 1 minuto
-
-        // temporizador = setTimeout(function() {
-        // var temporalizadorModal = new bootstrap.Modal(document.getElementById('temporalizadorModal'));
-        //     document.getElementById('temporalizadorMessage').innerText = '¡Recuerda marcar la fecha final!';
-        //     temporalizadorModal.show();
-        // }, 900000);
-    });
-
-    // "Fecha Final 6"
-    document.querySelector(".btn-fin6").addEventListener("click", function() {
-        // Limpiar el temporizador si se marca la fecha final antes del minuto
-        clearTimeout(temporizador);
-        
-        // Verificar si la fecha inicial ha sido marcada
-        if (!fechaInicioMarcada2) {
-            // Mostrar el modal de alerta
-            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
-            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
-            alertModal.show();
-            return; // Detener la ejecución si la fecha inicial no ha sido marcada
-        }
-        var fechaActual = obtenerFechaHoraActual();        
-        document.querySelector(".fecha-fin6-input").value = fechaActual;
-        this.disabled = true; 
-        document.querySelector(".fecha-fin6-input").disabled = true;
-    });
-
-
-    // var selectElement = document.querySelector(".seleccionar-resultado5");
-    //         var rowToHide1 = document.querySelector("[data-id='6a']");
-    //         var rowToShow2 = document.querySelector("[data-id='7a']");
-            
-    //         selectElement.addEventListener("change", function() {
-    //             if (this.value === "3" || this.value === "6") {
-    //                 rowToShow2.style.display = "table-row";
-    //                 rowToHide1.style.display = "none";
-    //             } else {
-    //                 rowToShow2.style.display = "table-row";
-    //                 rowToHide1.style.display = "table-row";
-    //             }
-    //         });
-
-
-/*TERCER TRAMO DE FECHA*/
-
-    // "Fecha Inicial 7"
-    document.querySelector(".btn-inicio7").addEventListener("click", function() {
-        var fechaActual = obtenerFechaHoraActual();        
-        document.querySelector(".fecha-inicio7-input").value = fechaActual;        
-        this.disabled = true; 
-        document.querySelector(".fecha-inicio7-input").disabled = true;
-        // Marcar que la fecha inicial ha sido marcada
-        fechaInicioMarcada3 = true;
-        
-        // // Establecer un temporizador para alertar después de un minuto
-        // temporizador = setTimeout(function() {
-        //     alert('¡Recuerda marcar la fecha final!');
-        // }, 900000); // 60000 milisegundos equivalen a 1 minuto
-
-        // temporizador = setTimeout(function() {
-        // var temporalizadorModal = new bootstrap.Modal(document.getElementById('temporalizadorModal'));
-        //     document.getElementById('temporalizadorMessage').innerText = '¡Recuerda marcar la fecha final!';
-        //     temporalizadorModal.show();
-        // }, 900000);
-    });
-
-    // "Fecha Final 8"
-    document.querySelector(".btn-fin8").addEventListener("click", function() {
-        // Limpiar el temporizador si se marca la fecha final antes del minuto
-        clearTimeout(temporizador);
-        
-        // Verificar si la fecha inicial ha sido marcada
-        if (!fechaInicioMarcada3) {
-            // Mostrar el modal de alerta
-            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
-            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
-            alertModal.show();
-            return; // Detener la ejecución si la fecha inicial no ha sido marcada
-        }
-        var fechaActual = obtenerFechaHoraActual();        
-        document.querySelector(".fecha-fin8-input").value = fechaActual;
-        this.disabled = true; 
-        document.querySelector(".fecha-fin8-input").disabled = true;
-    }); 
-
-/*CUARTA TRAMO DE FECHA*/
-
-    // "Fecha Inicial 10"
-    document.querySelector(".btn-inicio10").addEventListener("click", function() {
-        var fechaActual = obtenerFechaHoraActual();        
-        document.querySelector(".fecha-inicio10-input").value = fechaActual;        
-        this.disabled = true; 
-        document.querySelector(".fecha-inicio10-input").disabled = true;
-        // Marcar que la fecha inicial ha sido marcada
-        fechaInicioMarcada4 = true;
-        
-        // // Establecer un temporizador para alertar después de un minuto
-        // temporizador = setTimeout(function() {
-        //     alert('¡Recuerda marcar la fecha final!');
-        // }, 900000); // 60000 milisegundos equivalen a 1 minuto
-
-        // temporizador = setTimeout(function() {
-        // var temporalizadorModal = new bootstrap.Modal(document.getElementById('temporalizadorModal'));
-        //     document.getElementById('temporalizadorMessage').innerText = '¡Recuerda marcar la fecha final!';
-        //     temporalizadorModal.show();
-        // }, 900000);
-    });
-
-    // "Fecha Final 11"
-    document.querySelector(".btn-fin11").addEventListener("click", function() {
-        // Limpiar el temporizador si se marca la fecha final antes del minuto
-        clearTimeout(temporizador);
-        
-        // Verificar si la fecha inicial ha sido marcada
-        if (!fechaInicioMarcada4) {
-            // Mostrar el modal de alerta
-            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
-            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
-            alertModal.show();
-            return; // Detener la ejecución si la fecha inicial no ha sido marcada
-        }
-        var fechaActual = obtenerFechaHoraActual();        
-        document.querySelector(".fecha-fin11-input").value = fechaActual;
-        this.disabled = true; 
-        document.querySelector(".fecha-fin11-input").disabled = true;
-    }); 
-
-/*QUINTO TRAMO DE FECHA*/
-
-    // "Fecha Inicial 4"
-    document.querySelector(".btn-inicio4").addEventListener("click", function() {
-        var fechaActual = obtenerFechaHoraActual();        
-        document.querySelector(".fecha-inicio4-input").value = fechaActual;        
-        this.disabled = true; 
-        document.querySelector(".fecha-inicio4-input").disabled = true;
-        // Marcar que la fecha inicial ha sido marcada
-        fechaInicioMarcada5 = true;
-        
-        // // Establecer un temporizador para alertar después de un minuto
-        // temporizador = setTimeout(function() {
-        //     alert('¡Recuerda marcar la fecha final!');
-        // }, 900000); // 60000 milisegundos equivalen a 1 minuto
-
-        // temporizador = setTimeout(function() {
-        // var temporalizadorModal = new bootstrap.Modal(document.getElementById('temporalizadorModal'));
-        //     document.getElementById('temporalizadorMessage').innerText = '¡Recuerda marcar la fecha final!';
-        //     temporalizadorModal.show();
-        // }, 900000);
-    });
-
-    // "Fecha Final 12"
-    document.querySelector(".btn-fin12").addEventListener("click", function() {
-        // Limpiar el temporizador si se marca la fecha final antes del minuto
-        clearTimeout(temporizador);
-        
-        // Verificar si la fecha inicial ha sido marcada
-        if (!fechaInicioMarcada5) {
-            // Mostrar el modal de alerta
-            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
-            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
-            alertModal.show();
-            return; // Detener la ejecución si la fecha inicial no ha sido marcada
-        }
-        var fechaActual = obtenerFechaHoraActual();        
-        document.querySelector(".fecha-fin12-input").value = fechaActual;
-        this.disabled = true; 
-        document.querySelector(".fecha-fin12-input").disabled = true;
-    }); 
+    
+    
 
 
 
@@ -1115,6 +879,11 @@ document.addEventListener("DOMContentLoaded", function() {
     })
 
     
+    ////////////////eveto click validar que se halla cerrado el anterior item
+
+    document.querySelector("[data-id='fecha_iniMed']").addEventListener('click', e=>{
+        console.log(e.target.closest("tr").previousElementSibling.lastElementChild.lastElementChild.value);
+    })
 
 
 });
@@ -1123,6 +892,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
     </script>
     <script>
+
+
+        
+        // Variable para almacenar el identificador del temporizador
+        var temporizador;
+        var fechaInicioMarcada;
+        var fechaInicioMarcada2;
+        var fechaInicioMarcada3;
+        var fechaInicioMarcada4;
+        var fechaInicioMarcada5;
+
+        var fechainiciobtn3
+        let validarpreg4
+        let validarpreg6 
+        let validarpreg8
+        let validarpreg11
+
+
+
+
          
         var button = document.getElementById('agregar');
         button.addEventListener('click', function() {
@@ -1231,7 +1020,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     buttons.forEach(el => {
                         if(el.getAttribute("data-id")){
                             if(el.nextElementSibling.nextElementSibling.nextElementSibling.value != "" ){
-                                el.setAttribute("disabled", true)
+                                el.setAttribute("disabled", "true")
                                 // console.log(el.parentElement.lastElementChild.nodeName == "SELECT");
                                 // console.log(el.parentElement.lastElementChild.value);
                             }
@@ -1246,6 +1035,42 @@ document.addEventListener("DOMContentLoaded", function() {
                                 el.removeAttribute("disabled")
                             }
 
+                        }
+                    });
+
+
+                    buttons.forEach(el => {
+                        if(el.getAttribute("disabled")){
+                            console.log(el.getAttribute("data-id"));
+                            if(el.getAttribute("data-id") == "fecha_iniAr"){
+                                fechaInicioMarcada = true;
+                            }
+                            if(el.getAttribute("data-id") == "fecha_finAr"){
+                                fechainiciobtn3 = true
+                            }
+                            if(el.getAttribute("data-id") == "fecha_iniMed"){
+                                validarpreg4 = true
+                                fechaInicioMarcada5 = true;
+                            }
+                            if(el.getAttribute("data-id") == "fecha_iniGuH"){
+                                fechaInicioMarcada2 = true;
+                            }
+                            if(el.getAttribute("data-id") == "fecha_finGuH"){
+                                validarpreg6 = true
+                            }
+                            if(el.getAttribute("data-id") == "fecha_iniRes"){
+                                fechaInicioMarcada3 = true;
+                            }
+                            if(el.getAttribute("data-id") == "fecha_finRes"){
+                                validarpreg8 = true
+                            }
+                            if(el.getAttribute("data-id") == "fecha_iniGuE"){
+                                fechaInicioMarcada4 = true;
+                            }
+                            if(el.getAttribute("data-id") == "fecha_finGuE"){
+                                validarpreg11 = true
+                            }
+                            
                         }
                     });
 
@@ -1528,6 +1353,272 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             
         })
+
+
+
+
+
+        // Función para obtener la fecha actual en formato "YYYY-MM-DD"
+    function obtenerFechaHoraActual() {
+        const ahora = new Date();
+        const fecha = ahora.toLocaleDateString();
+        const hora = ahora.toLocaleTimeString();
+        const fechaHora = `${fecha} ${hora}`;
+        return fechaHora;
+    }
+
+
+
+        // "Fecha Inicial 2"
+    document.querySelector(".btn-inicio2").addEventListener("click", function() {
+        var fechaActual = obtenerFechaHoraActual();        
+        document.querySelector(".fecha-inicio2-input").value = fechaActual;        
+        this.disabled = true; 
+        document.querySelector(".fecha-inicio2-input").disabled = true;
+        // Marcar que la fecha inicial ha sido marcada
+        fechaInicioMarcada = true;
+        
+        // // Establecer un temporizador para alertar después de un minuto
+        // temporizador = setTimeout(function() {
+        //     alert('¡Recuerda marcar la fecha final!');
+        // }, 900000); // 60000 milisegundos equivalen a 1 minuto
+
+        // temporizador = setTimeout(function() {
+        // var temporalizadorModal = new bootstrap.Modal(document.getElementById('temporalizadorModal'));
+        //     document.getElementById('temporalizadorMessage').innerText = '¡Recuerda marcar la fecha final!';
+        //     temporalizadorModal.show();
+        // }, 900000);
+    });
+
+    // "Fecha Final 3"
+    document.querySelector(".btn-fin3").addEventListener("click", function() {
+        // Limpiar el temporizador si se marca la fecha final antes del minuto
+        //clearTimeout(temporizador);
+        
+        fechainiciobtn3 = true
+
+        // Verificar si la fecha inicial ha sido marcada
+        if (!fechaInicioMarcada) {
+            // Mostrar el modal de alerta
+            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
+            alertModal.show();
+            return; // Detener la ejecución si la fecha inicial no ha sido marcada
+        }
+        var fechaActual = obtenerFechaHoraActual();        
+        document.querySelector(".fecha-fin3-input").value = fechaActual;
+        this.disabled = true; 
+        document.querySelector(".fecha-fin3-input").disabled = true;
+    });
+
+
+
+    
+    // "Fecha Final 4"
+    document.querySelector(".btn-fin4").addEventListener("click", function() {
+        //clearTimeout(temporizador);
+
+        validarpreg4 = true
+        fechaInicioMarcada5 = true;
+        // Verificar si la fecha inicial ha sido marcada
+        if (!fechainiciobtn3) {
+            // Mostrar el modal de alerta
+            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+            document.getElementById('alertMessage').innerText = '¡Omisión en pregunta anterior, marcar la fecha final!';
+            alertModal.show();
+            return; // Detener la ejecución si la fecha inicial no ha sido marcada
+        }
+            var fechaActual = obtenerFechaHoraActual();        
+            document.querySelector(".fecha-inicio4-input").value = fechaActual;
+            this.disabled = true; 
+            document.querySelector(".fecha-inicio4-input").disabled = true;
+          
+    });
+
+
+/*SEGUNDO TRAMO DE FECHA*/
+
+    // "Fecha Inicial 5"
+    document.querySelector(".btn-inicio5").addEventListener("click", function() {
+        
+        // Marcar que la fecha inicial ha sido marcada
+        fechaInicioMarcada2 = true;
+        
+        if (!validarpreg4) {
+            // Mostrar el modal de alerta
+            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+            document.getElementById('alertMessage').innerText = '¡Omisión en pregunta anterior, marcar la fecha final!';
+            alertModal.show();
+            return; // Detener la ejecución si la fecha inicial no ha sido marcada
+        }
+
+        var fechaActual = obtenerFechaHoraActual();        
+        document.querySelector(".fecha-inicio5-input").value = fechaActual;        
+        this.disabled = true; 
+        document.querySelector(".fecha-inicio5-input").disabled = true;
+    });
+
+    
+    // "Fecha Final 6"
+    document.querySelector(".btn-fin6").addEventListener("click", function() {
+        // Limpiar el temporizador si se marca la fecha final antes del minuto
+        //clearTimeout(temporizador);
+        
+        validarpreg6 = true
+
+        // Verificar si la fecha inicial ha sido marcada
+        if (!fechaInicioMarcada2) {
+            // Mostrar el modal de alerta
+            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
+            alertModal.show();
+            return; // Detener la ejecución si la fecha inicial no ha sido marcada
+        }
+        var fechaActual = obtenerFechaHoraActual();        
+        document.querySelector(".fecha-fin6-input").value = fechaActual;
+        this.disabled = true; 
+        document.querySelector(".fecha-fin6-input").disabled = true;
+    });
+
+
+    // var selectElement = document.querySelector(".seleccionar-resultado5");
+    //         var rowToHide1 = document.querySelector("[data-id='6a']");
+    //         var rowToShow2 = document.querySelector("[data-id='7a']");
+            
+    //         selectElement.addEventListener("change", function() {
+    //             if (this.value === "3" || this.value === "6") {
+    //                 rowToShow2.style.display = "table-row";
+    //                 rowToHide1.style.display = "none";
+    //             } else {
+    //                 rowToShow2.style.display = "table-row";
+    //                 rowToHide1.style.display = "table-row";
+    //             }
+    //         });
+
+
+/*TERCER TRAMO DE FECHA*/
+
+    // "Fecha Inicial 7"
+    document.querySelector(".btn-inicio7").addEventListener("click", function() {
+        
+        // Marcar que la fecha inicial ha sido marcada
+        fechaInicioMarcada3 = true;
+        
+        // Verificar si la fecha inicial ha sido marcada
+        if (!validarpreg6) {
+            // Mostrar el modal de alerta
+            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
+            alertModal.show();
+            return; // Detener la ejecución si la fecha inicial no ha sido marcada
+        }
+
+        var fechaActual = obtenerFechaHoraActual();        
+        document.querySelector(".fecha-inicio7-input").value = fechaActual;        
+        this.disabled = true; 
+        document.querySelector(".fecha-inicio7-input").disabled = true;
+    });
+
+
+    
+    // "Fecha Final 8"
+    document.querySelector(".btn-fin8").addEventListener("click", function() {
+        // Limpiar el temporizador si se marca la fecha final antes del minuto
+        //clearTimeout(temporizador);
+        
+        validarpreg8 = true
+        // Verificar si la fecha inicial ha sido marcada
+        if (!fechaInicioMarcada3) {
+            // Mostrar el modal de alerta
+            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
+            alertModal.show();
+            return; // Detener la ejecución si la fecha inicial no ha sido marcada
+        }
+        var fechaActual = obtenerFechaHoraActual();        
+        document.querySelector(".fecha-fin8-input").value = fechaActual;
+        this.disabled = true; 
+        document.querySelector(".fecha-fin8-input").disabled = true;
+    }); 
+
+/*CUARTA TRAMO DE FECHA*/
+
+    // "Fecha Inicial 10"
+    document.querySelector(".btn-inicio10").addEventListener("click", function() {
+        
+        // Marcar que la fecha inicial ha sido marcada
+        fechaInicioMarcada4 = true;
+        
+        if (!validarpreg8) {
+            // Mostrar el modal de alerta
+            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
+            alertModal.show();
+            return; // Detener la ejecución si la fecha inicial no ha sido marcada
+        }
+        var fechaActual = obtenerFechaHoraActual();        
+        document.querySelector(".fecha-inicio10-input").value = fechaActual;        
+        this.disabled = true; 
+        document.querySelector(".fecha-inicio10-input").disabled = true;
+    });
+
+   
+    // "Fecha Final 11"
+    document.querySelector(".btn-fin11").addEventListener("click", function() {
+        // Limpiar el temporizador si se marca la fecha final antes del minuto
+        //clearTimeout(temporizador);
+        
+        validarpreg11 = true
+        // Verificar si la fecha inicial ha sido marcada
+        if (!fechaInicioMarcada4) {
+            // Mostrar el modal de alerta
+            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
+            alertModal.show();
+            return; // Detener la ejecución si la fecha inicial no ha sido marcada
+        }
+        var fechaActual = obtenerFechaHoraActual();        
+        document.querySelector(".fecha-fin11-input").value = fechaActual;
+        this.disabled = true; 
+        document.querySelector(".fecha-fin11-input").disabled = true;
+    }); 
+
+    document.querySelector("[data-id='estadoGuA']").addEventListener("click", e => {
+
+        if (!validarpreg11) {
+            // Mostrar el modal de alerta
+            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
+            alertModal.show();
+            e.target.firstElementChild.setAttribute("selected", "selected")
+            return; // Detener la ejecución si la fecha inicial no ha sido marcada
+        }
+        
+    })
+
+
+
+    // "Fecha Final 12"
+    document.querySelector(".btn-fin12").addEventListener("click", function() {
+        // Limpiar el temporizador si se marca la fecha final antes del minuto
+        //clearTimeout(temporizador);
+        
+        // Verificar si la fecha inicial ha sido marcada
+        if (!fechaInicioMarcada5) {
+            // Mostrar el modal de alerta
+            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
+            alertModal.show();
+            return; // Detener la ejecución si la fecha inicial no ha sido marcada
+        }
+        var fechaActual = obtenerFechaHoraActual();        
+        document.querySelector(".fecha-fin12-input").value = fechaActual;
+        this.disabled = true; 
+        document.querySelector(".fecha-fin12-input").disabled = true;
+    }); 
+
+
+
 
     </script>
 </body>
