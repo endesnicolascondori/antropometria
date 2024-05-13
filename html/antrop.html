@@ -1418,10 +1418,12 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelector(".btn-fin4").addEventListener("click", function() {
         //clearTimeout(temporizador);
 
+        let preg2select = document.querySelector("[data-id = 'estadoAr']")
+
         validarpreg4 = true
         fechaInicioMarcada5 = true;
         // Verificar si la fecha inicial ha sido marcada
-        if (!fechainiciobtn3) {
+        if (!fechainiciobtn3 && (preg2select.value != 6 && preg2select.value !=3 ) ) {
             // Mostrar el modal de alerta
             var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
             document.getElementById('alertMessage').innerText = '¡Omisión en pregunta anterior, marcar la fecha final!';
@@ -1470,7 +1472,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!fechaInicioMarcada2) {
             // Mostrar el modal de alerta
             var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
-            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
+            document.getElementById('alertMessage').innerText = '¡Omisión en pregunta anterior, marcar la fecha final!';
             alertModal.show();
             return; // Detener la ejecución si la fecha inicial no ha sido marcada
         }
@@ -1501,14 +1503,17 @@ document.addEventListener("DOMContentLoaded", function() {
     // "Fecha Inicial 7"
     document.querySelector(".btn-inicio7").addEventListener("click", function() {
         
+        let preg5select = document.querySelector("[data-id = 'estadoGuH']")
+        
+
         // Marcar que la fecha inicial ha sido marcada
         fechaInicioMarcada3 = true;
         
         // Verificar si la fecha inicial ha sido marcada
-        if (!validarpreg6) {
+        if (!validarpreg6 && (preg5select.value != 3 &&  preg5select.value != 6)) {
             // Mostrar el modal de alerta
             var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
-            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
+            document.getElementById('alertMessage').innerText = '¡Omisión en pregunta anterior, marcar la fecha final!';
             alertModal.show();
             return; // Detener la ejecución si la fecha inicial no ha sido marcada
         }
@@ -1531,7 +1536,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!fechaInicioMarcada3) {
             // Mostrar el modal de alerta
             var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
-            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
+            document.getElementById('alertMessage').innerText = '¡Omisión en pregunta anterior, marcar la fecha final!';
             alertModal.show();
             return; // Detener la ejecución si la fecha inicial no ha sido marcada
         }
@@ -1552,7 +1557,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!validarpreg8) {
             // Mostrar el modal de alerta
             var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
-            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
+            document.getElementById('alertMessage').innerText = '¡Omisión en pregunta anterior, marcar la fecha final!';
             alertModal.show();
             return; // Detener la ejecución si la fecha inicial no ha sido marcada
         }
@@ -1573,7 +1578,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!fechaInicioMarcada4) {
             // Mostrar el modal de alerta
             var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
-            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
+            document.getElementById('alertMessage').innerText = '¡Omisión en pregunta anterior, marcar la fecha final!';
             alertModal.show();
             return; // Detener la ejecución si la fecha inicial no ha sido marcada
         }
@@ -1588,7 +1593,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!validarpreg11) {
             // Mostrar el modal de alerta
             var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
-            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
+            document.getElementById('alertMessage').innerText = '¡Omisión en pregunta anterior, marcar la fecha final!';
             alertModal.show();
             e.target.firstElementChild.setAttribute("selected", "selected")
             return; // Detener la ejecución si la fecha inicial no ha sido marcada
@@ -1607,7 +1612,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!fechaInicioMarcada5) {
             // Mostrar el modal de alerta
             var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
-            document.getElementById('alertMessage').innerText = '¡Primero debe marcar la fecha de inicio!';
+            document.getElementById('alertMessage').innerText = '¡Omisión en pregunta anterior, marcar la fecha final!';
             alertModal.show();
             return; // Detener la ejecución si la fecha inicial no ha sido marcada
         }
