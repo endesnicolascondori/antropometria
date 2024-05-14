@@ -1395,7 +1395,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Limpiar el temporizador si se marca la fecha final antes del minuto
         //clearTimeout(temporizador);
         
-        fechainiciobtn3 = true
+        
 
         // Verificar si la fecha inicial ha sido marcada
         if (!fechaInicioMarcada) {
@@ -1405,6 +1405,8 @@ document.addEventListener("DOMContentLoaded", function() {
             alertModal.show();
             return; // Detener la ejecución si la fecha inicial no ha sido marcada
         }
+        fechainiciobtn3 = true
+
         var fechaActual = obtenerFechaHoraActual();        
         document.querySelector(".fecha-fin3-input").value = fechaActual;
         this.disabled = true; 
@@ -1420,8 +1422,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         let preg2select = document.querySelector("[data-id = 'estadoAr']")
 
-        validarpreg4 = true
-        fechaInicioMarcada5 = true;
+        
         // Verificar si la fecha inicial ha sido marcada
         if (!fechainiciobtn3 && (preg2select.value != 6 && preg2select.value !=3 ) ) {
             // Mostrar el modal de alerta
@@ -1430,6 +1431,10 @@ document.addEventListener("DOMContentLoaded", function() {
             alertModal.show();
             return; // Detener la ejecución si la fecha inicial no ha sido marcada
         }
+
+            validarpreg4 = true
+            fechaInicioMarcada5 = true;
+
             var fechaActual = obtenerFechaHoraActual();        
             document.querySelector(".fecha-inicio4-input").value = fechaActual;
             this.disabled = true; 
@@ -1443,16 +1448,18 @@ document.addEventListener("DOMContentLoaded", function() {
     // "Fecha Inicial 5"
     document.querySelector(".btn-inicio5").addEventListener("click", function() {
         
-        // Marcar que la fecha inicial ha sido marcada
-        fechaInicioMarcada2 = true;
+       
         
         if (!validarpreg4) {
             // Mostrar el modal de alerta
             var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
-            document.getElementById('alertMessage').innerText = '¡Omisión en pregunta anterior, marcar la fecha final!';
+            document.getElementById('alertMessage').innerText = '¡Omisión en pregunta anterior, marcar la fecha inicial!';
             alertModal.show();
             return; // Detener la ejecución si la fecha inicial no ha sido marcada
         }
+
+         // Marcar que la fecha inicial ha sido marcada
+         fechaInicioMarcada2 = true;
 
         var fechaActual = obtenerFechaHoraActual();        
         document.querySelector(".fecha-inicio5-input").value = fechaActual;        
@@ -1466,16 +1473,16 @@ document.addEventListener("DOMContentLoaded", function() {
         // Limpiar el temporizador si se marca la fecha final antes del minuto
         //clearTimeout(temporizador);
         
-        validarpreg6 = true
-
         // Verificar si la fecha inicial ha sido marcada
         if (!fechaInicioMarcada2) {
             // Mostrar el modal de alerta
             var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
-            document.getElementById('alertMessage').innerText = '¡Omisión en pregunta anterior, marcar la fecha final!';
+            document.getElementById('alertMessage').innerText = '¡Omisión en pregunta anterior, marcar la fecha inicial!';
             alertModal.show();
             return; // Detener la ejecución si la fecha inicial no ha sido marcada
         }
+        validarpreg6 = true
+
         var fechaActual = obtenerFechaHoraActual();        
         document.querySelector(".fecha-fin6-input").value = fechaActual;
         this.disabled = true; 
@@ -1506,8 +1513,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let preg5select = document.querySelector("[data-id = 'estadoGuH']")
         
 
-        // Marcar que la fecha inicial ha sido marcada
-        fechaInicioMarcada3 = true;
+       
         
         // Verificar si la fecha inicial ha sido marcada
         if (!validarpreg6 && (preg5select.value != 3 &&  preg5select.value != 6)) {
@@ -1517,6 +1523,9 @@ document.addEventListener("DOMContentLoaded", function() {
             alertModal.show();
             return; // Detener la ejecución si la fecha inicial no ha sido marcada
         }
+
+         // Marcar que la fecha inicial ha sido marcada
+         fechaInicioMarcada3 = true;
 
         var fechaActual = obtenerFechaHoraActual();        
         document.querySelector(".fecha-inicio7-input").value = fechaActual;        
@@ -1531,15 +1540,18 @@ document.addEventListener("DOMContentLoaded", function() {
         // Limpiar el temporizador si se marca la fecha final antes del minuto
         //clearTimeout(temporizador);
         
-        validarpreg8 = true
-        // Verificar si la fecha inicial ha sido marcada
+       
         if (!fechaInicioMarcada3) {
             // Mostrar el modal de alerta
             var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
-            document.getElementById('alertMessage').innerText = '¡Omisión en pregunta anterior, marcar la fecha final!';
+            document.getElementById('alertMessage').innerText = '¡Omisión en pregunta anterior, marcar la fecha inicial!';
             alertModal.show();
             return; // Detener la ejecución si la fecha inicial no ha sido marcada
         }
+
+        validarpreg8 = true
+        // Verificar si la fecha inicial ha sido marcada
+
         var fechaActual = obtenerFechaHoraActual();        
         document.querySelector(".fecha-fin8-input").value = fechaActual;
         this.disabled = true; 
@@ -1551,8 +1563,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // "Fecha Inicial 10"
     document.querySelector(".btn-inicio10").addEventListener("click", function() {
         
-        // Marcar que la fecha inicial ha sido marcada
-        fechaInicioMarcada4 = true;
         
         if (!validarpreg8) {
             // Mostrar el modal de alerta
@@ -1561,6 +1571,10 @@ document.addEventListener("DOMContentLoaded", function() {
             alertModal.show();
             return; // Detener la ejecución si la fecha inicial no ha sido marcada
         }
+
+        // Marcar que la fecha inicial ha sido marcada
+        fechaInicioMarcada4 = true;
+
         var fechaActual = obtenerFechaHoraActual();        
         document.querySelector(".fecha-inicio10-input").value = fechaActual;        
         this.disabled = true; 
@@ -1573,8 +1587,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Limpiar el temporizador si se marca la fecha final antes del minuto
         //clearTimeout(temporizador);
         
-        validarpreg11 = true
-        // Verificar si la fecha inicial ha sido marcada
+        
         if (!fechaInicioMarcada4) {
             // Mostrar el modal de alerta
             var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
@@ -1582,6 +1595,10 @@ document.addEventListener("DOMContentLoaded", function() {
             alertModal.show();
             return; // Detener la ejecución si la fecha inicial no ha sido marcada
         }
+
+        validarpreg11 = true
+        // Verificar si la fecha inicial ha sido marcada
+
         var fechaActual = obtenerFechaHoraActual();        
         document.querySelector(".fecha-fin11-input").value = fechaActual;
         this.disabled = true; 
