@@ -392,7 +392,7 @@ thead th {
                     <tr data-id='fila3'> 
                         <td>3</td>
                         <td>REGISTRE FECHA  Y HORA DE TÉRMINO DEL ARMADO DE LOS EQUIPOS
-                            <br> <br><strong>PREVIO A LA MEDICIÓN ANTROPOMÉTRICA:</strong> CONSIDERAR LA FECHA Y HORA DE TÉRMINO LUEGO DE UBICAR, ARMAR LOS EQUIPOS (TALLIMETRO Y BALANZA)Y DEJAR LISTO PARA LAS MEDICIONES.</td>
+                            <br> <br><strong>PREVIO A LA MEDICIÓN ANTROPOMÉTRICA:</strong> CONSIDERAR LA FECHA Y HORA DE TÉRMINO, LUEGO DE UBICAR, ARMAR LOS EQUIPOS (TALLIMETRO Y BALANZA)Y DEJAR LISTO PARA LAS MEDICIONES.</td>
                         <td class="align-middle">
                             <button type="button" class="btn btn-primary btn-fin3 d-inline" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 200px;" data-id="fecha_finAr">
                                 Fecha Final
@@ -403,7 +403,7 @@ thead th {
                        
                     </tr>
             
-                    <tr  class="guardado"> 
+                    <tr  class="guardado" data-id='fila4'> 
                         <td>4</td>
                         <td>REGISTRE FECHA  Y HORA DE INICIO DE MEDICIONES <br><br>
                             <strong>EJECUCIÓN DE MEDICIONES:</strong> CONSIDERAR LA FECHA Y HORA DE INICIO CUANDO INICIA LA EXPLICACIÓN FORMALMENTE PARA LA APLICACIÓN DE MEDICIONES.</td>
@@ -416,7 +416,7 @@ thead th {
                         </td>                        
                     </tr>
 
-                    <tr > 
+                    <tr data-id='fila5'> 
                         <td>5</td>
                         <td>REGISTRE FECHA  Y HORA DE INICIO DEL GUARDADO Y DESINFECCIÓN DEL HEMOGLOBINOMETRO Y CHAQUETA DE LA ANTROPOMETRISTA<br><br>
                             <strong>POSTERIOR A LA PRUEBA DE HEMOGLOBINA:</strong> CONSIDERAR LA HORA DE INICIO LUEGO DE VERIFICAR EL DATO DICTADO.
@@ -453,7 +453,7 @@ thead th {
                         </td>
                     </tr>
 
-                    <tr > 
+                    <tr data-id='fila7'> 
                         <td>7</td>
                         <td>REGISTRE FECHA  Y HORA DE INICIO DE LLENADO DE LA HOJA DE RESULTADOS (HOJA ROSADA)<br> <br>   
 
@@ -468,11 +468,11 @@ thead th {
                     </tr>
 
                     
-                    <tr > 
+                    <tr data-id='fila8'> 
                         <td>8</td>
                         <td>REGISTRE FECHA  Y HORA DE TÉRMINO DE LA ENTREGA DE RESULTADO<br><br>
 
-                        <strong>ENTREGA DE RESULTADOS:</strong> CONSIDERAR LA HORA DE TÉRMINO LUEGO QUE LLENÓ LA HOJA Y TÉRMINO LA EXPLICACIÓN DE LOS RESULTADOS DE ANTROPOMETRIA Y HEMOGLOBINA.</td>
+                        <strong>ENTREGA DE RESULTADOS:</strong> CONSIDERAR LA HORA DE TÉRMINO LUEGO QUE LLENÓ LA HOJA Y TERMINÓ LA EXPLICACIÓN DE LOS RESULTADOS DE ANTROPOMETRÍA Y HEMOGLOBINA.</td>
                         <td class="align-middle">
                             <button type="button" class="btn btn-primary btn-fin8 d-inline" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 200px;" data-id="fecha_finRes">
                                 Fecha Final
@@ -482,7 +482,7 @@ thead th {
                         </td>
                     </tr>
                   
-                    <tr >   
+                    <tr data-id='fila9'>   
                         <td>9</td>
                         <td>
                             N° DE ORDEN Y NOMBRE DE LAS PERSONAS DEL CUESTIONARIO DEL HOGAR, CON AL MENOS UNA MEDICIÓN O PRUEBA APLICADA EN LA VISITA<br>
@@ -490,8 +490,14 @@ thead th {
                         </td>
                         <td class="align-middle">                            
                             <!-- <input data-id="9aa" type="number" class="form-control input-cantidad d-inline" placeholder="Cantidad" style="width: 200px;"> -->
-                            <a type="button" class="btn btn-secondary btn-fin8 d-inline" style="width: 200px;" id="agregar">
+                            <a type="button" class="btn btn-secondary btn-fin8 d-inline" style="width: 140px;" id="agregar">
                                 +
+                            </a>
+                            <a type="button" class="btn btn-danger btn-delete d-inline" style="width: 50px;" id="agregar">
+                                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd" d="M8.586 2.586A2 2 0 0 1 10 2h4a2 2 0 0 1 2 2v2h3a1 1 0 1 1 0 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8a1 1 0 0 1 0-2h3V4a2 2 0 0 1 .586-1.414ZM10 6h4V4h-4v2Zm1 4a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Zm4 0a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Z" clip-rule="evenodd"/>
+                                </svg>
+                                  
                             </a>
                             <br><br>
                             <div class="nombre-orden-container" data-id="9cant">
@@ -500,11 +506,11 @@ thead th {
                         </td>
                     </tr>
         
-                    <tr > 
+                    <tr data-id='fila10'> 
                         <td>10</td>
                         <td>REGISTRE FECHA  Y HORA DE INICIO DEL GUARDADO DE EQUIPOS <br><br>
 
-                            <strong>GUARDADO DE EQUIPOS: CONSIDERAR LA HORA DE INICIO DEL GUARDADO DE LOS EQUIPOS: BALANZA Y/O TALLÍMETRO DESDE SU DESINFECCIÓN.</strong> </td>
+                            <strong>GUARDADO DE EQUIPOS:</strong> CONSIDERAR LA HORA DE INICIO DEL GUARDADO DE LOS EQUIPOS: BALANZA Y/O TALLÍMETRO DESDE SU DESINFECCIÓN. </td>
                         <td class="align-middle">
                             <button type="button" class="btn btn-primary btn-inicio10 d-inline" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 200px;" data-id="fecha_iniGuE">
                                 Fecha Inicial
@@ -552,7 +558,7 @@ thead th {
                         </td>
                     </tr>
 
-                    <tr  class="guardado"> 
+                    <tr  class="guardado" data-id='fila13'> 
                         <td>13</td>
                         <td>REGISTRE FECHA  Y HORA DE TÉRMINO DE MEDICIONES Y OTRAS ACTIVIDADES DE LA ANTROPOMETRISTA<br><br>
 
@@ -566,14 +572,15 @@ thead th {
                         </td>                      
                     </tr>
 
-                    <tr>
+                    <tr data-id='fila14'> 
                         <th colspan="4" style="text-align: center;">OBSERVACIONES DE LA ANTROPOMETRISTA</th>
                     </tr> 
-                    <tr data-id="obs">
+                    <tr data-id="obs" >
                         <td colspan="4">
                             <textarea data-id="observacion" class="form-control" rows="4"></textarea>
                         </td>
                     </tr>
+                
 
                 </tbody>
             </table>
@@ -700,6 +707,76 @@ seleccionarResultado10.addEventListener('change', function() {
     }
 });
 
+function limitarCaracteres(input) {
+    if (input.value.length > 2) {
+        input.value = input.value.slice(0, 2); // Solo se toman los dos primeros caracteres
+    }
+    // else if(input.value.length == 1){
+    //     input.value = `0${}`
+    // }
+}
+
+function agregarcajaConInput() {
+    // Obtener el elemento de entrada de cantidad
+    const inputCantidad = document.querySelector('.input-cantidad');
+    // Obtener el contenedor donde se agregarán dinámicamente los campos de nombre y orden
+    const nombreOrdenContainer = document.querySelector('.nombre-orden-container');
+
+    const caja = document.createElement('div');
+    caja.classList.add('contenedor');
+    caja.style.marginBottom = '20px';
+    // Crear elementos de input para nombre y orden
+    const inputNombre = document.createElement('input');
+    inputNombre.type = 'text';
+    inputNombre.classList.add('form-control', 'input-nombre');
+    //inputNombre.setAttribute("data-item", `n${i}`)
+    //inputNombre.setAttribute("data-id", `n`)
+    inputNombre.setAttribute("data-insertar", `insert`)
+    inputNombre.placeholder = 'Nombre';
+    inputNombre.style.width = '200px';
+    inputNombre.style.display = 'inline';
+    inputNombre.setAttribute("data-validar", `valid`)
+
+    const inputOrden = document.createElement('input');
+    inputOrden.type = 'number';
+    inputOrden.classList.add('form-control', 'input-orden', 'contador');
+    //inputOrden.setAttribute("data-item", `o${i}`)
+    //inputOrden.setAttribute("data-id", `o`)
+    inputOrden.setAttribute("data-insertar", `insert`)
+    inputOrden.setAttribute("max", `99`)
+    inputOrden.setAttribute("min", `0`)
+    inputOrden.setAttribute("pattern", `\d{1,2}`)
+    inputOrden.setAttribute("oninput", "limitarCaracteres(this)")
+    inputOrden.placeholder = 'N° Orden';
+    inputOrden.style.width = '200px';
+    inputOrden.style.display = 'inline';
+    inputOrden.setAttribute("data-validar", `valid`)
+
+    
+
+    // Agregar los campos de nombre y orden al contenedor
+    caja.appendChild(inputOrden);
+    caja.appendChild(inputNombre);
+    //nombreOrdenContainer.appendChild(inputOrden);
+
+
+    nombreOrdenContainer.appendChild(caja);
+
+    // Agregar un salto de línea entre cada par de campos de nombre y orden
+    // const lineBreak = document.createElement('br');
+    // nombreOrdenContainer.appendChild(lineBreak.cloneNode());
+    // nombreOrdenContainer.appendChild(lineBreak.cloneNode());
+
+    let cont = document.querySelectorAll(".contador")
+    inputNombre.setAttribute("data-id", `n${cont.length}`)
+    inputOrden.setAttribute("data-id", `o${cont.length}`)
+    //console.log();
+
+
+    eventoAdd();
+}
+
+
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -713,121 +790,102 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    //console.log("dd", inputDesactivados);
 
 
     
 
-    
-    
 
-    
-    
-
-
-
-    // Obtener el elemento de entrada de cantidad
-    const inputCantidad = document.querySelector('.input-cantidad');
-    // Obtener el contenedor donde se agregarán dinámicamente los campos de nombre y orden
-    const nombreOrdenContainer = document.querySelector('.nombre-orden-container');
-
-
-    // Evento de cambio en el campo de cantidad
-    // inputCantidad.addEventListener('change', function() {
-    //     // Limpiar el contenedor antes de agregar los nuevos campos
-    //     nombreOrdenContainer.innerHTML = '';
-    //     // Obtener la cantidad ingresada
-    //     const cantidad = parseInt(inputCantidad.value);
-
-    //     // Agregar campos de nombre y orden según la cantidad ingresada
-    //     for (let i = 1; i <= cantidad; i++) {
-    //         // Crear elementos de input para nombre y orden
-    //         const inputNombre = document.createElement('input');
-    //         inputNombre.type = 'text';
-    //         inputNombre.classList.add('form-control', 'input-nombre');
-    //         inputNombre.setAttribute("data-item", `n${i}`)
-    //         inputNombre.placeholder = 'Nombre';
-    //         inputNombre.style.width = '200px';
-    //         inputNombre.style.display = 'inline';
-
-    //         const inputOrden = document.createElement('input');
-    //         inputOrden.type = 'text';
-    //         inputOrden.classList.add('form-control', 'input-orden');
-    //         inputOrden.setAttribute("data-item", `o${i}`)
-    //         inputOrden.placeholder = 'N° Orden';
-    //         inputOrden.style.width = '200px';
-    //         inputOrden.style.display = 'inline';
-
-    //         // Agregar los campos de nombre y orden al contenedor
-    //         nombreOrdenContainer.appendChild(inputNombre);
-    //         nombreOrdenContainer.appendChild(inputOrden);
-
-    //         // Agregar un salto de línea entre cada par de campos de nombre y orden
-    //         const lineBreak = document.createElement('br');
-    //         nombreOrdenContainer.appendChild(lineBreak.cloneNode());
-    //         nombreOrdenContainer.appendChild(lineBreak.cloneNode());
-    //     }
-    // });
-
+   
 
     document.querySelector("#agregar").addEventListener("click", e=>{
         console.log("clickkkk");
 
+        let validarlista = document.querySelectorAll("[data-validar= 'valid']")
+        let cont = 0
+
+        validarlista.forEach(el => {
+            
+            if(el.value == "" ){
+                console.log("hay un campo vacio");
+                
+            }else{
+                cont += 1 
+            }
+        });
+
+        if(cont == validarlista.length){
+            agregarcajaConInput()
+        }
+
+        // if(validarlista.length == 0){
+        //     agregarcajaConInput()
+        // }
         
+       
 
-        // Crear elementos de input para nombre y orden
-        const inputNombre = document.createElement('input');
-        inputNombre.type = 'text';
-        inputNombre.classList.add('form-control', 'input-nombre');
-        //inputNombre.setAttribute("data-item", `n${i}`)
-        //inputNombre.setAttribute("data-id", `n`)
-        inputNombre.setAttribute("data-insertar", `insert`)
-        inputNombre.placeholder = 'Nombre';
-        inputNombre.style.width = '200px';
-        inputNombre.style.display = 'inline';
-
-        const inputOrden = document.createElement('input');
-        inputOrden.type = 'text';
-        inputOrden.classList.add('form-control', 'input-orden', 'contador');
-        //inputOrden.setAttribute("data-item", `o${i}`)
-        //inputOrden.setAttribute("data-id", `o`)
-        inputOrden.setAttribute("data-insertar", `insert`)
-        inputOrden.setAttribute("maxlength", `2`)
-        inputOrden.placeholder = 'N° Orden';
-        inputOrden.style.width = '200px';
-        inputOrden.style.display = 'inline';
-
-        
-
-        // Agregar los campos de nombre y orden al contenedor
-        nombreOrdenContainer.appendChild(inputOrden);
-        nombreOrdenContainer.appendChild(inputNombre);
-        //nombreOrdenContainer.appendChild(inputOrden);
-
-        // Agregar un salto de línea entre cada par de campos de nombre y orden
-        const lineBreak = document.createElement('br');
-        nombreOrdenContainer.appendChild(lineBreak.cloneNode());
-        nombreOrdenContainer.appendChild(lineBreak.cloneNode());
-
-        let cont = document.querySelectorAll(".contador")
-        inputNombre.setAttribute("data-id", `n${cont.length}`)
-        inputOrden.setAttribute("data-id", `o${cont.length}`)
-        //console.log();
-
-
-        eventoAdd();
     })
 
 
+    
+    
+        
+    
 
-    var selectElement = document.querySelector(".seleccionar-resultado2");
-    var rowToShow = document.querySelector("[data-id='fila3']");
+    
+
+
+    let selectElement1 = document.querySelector(".seleccionar-ubicacion");
+    let selectElement = document.querySelector(".seleccionar-resultado2"); 
+    let rowToShow = document.querySelector("[data-id='fila3']");
+    let rowToShowpreg4 = document.querySelector("[data-id='fila4']");
+    let rowToShow5 = document.querySelector("[data-id='fila5']");
+    let rowToShow6 = document.querySelector("[data-id='fila6']");
+    let rowToShow7 = document.querySelector("[data-id='fila7']");
+    let rowToShow8 = document.querySelector("[data-id='fila8']");
+    let rowToShow9 = document.querySelector("[data-id='fila9']");
+    let rowToShow10 = document.querySelector("[data-id='fila10']");
+    let rowToShow11 = document.querySelector("[data-id='fila11']");
+    let rowToShow12 = document.querySelector("[data-id='fila12']");
+    let rowToShow13 = document.querySelector("[data-id='fila13']");
+    let rowToShow14 = document.querySelector("[data-id='fila14']");
+    let rowToShow15 = document.querySelector("[data-id='obs']");
+
 
     selectElement.addEventListener("change", function() {
         if (this.value === "3" || this.value === "6") {
             rowToShow.style.display = "none";
         } else {
             rowToShow.style.display = "table-row";
+        }
+
+        console.log("devvvvvvvvvvv", rowToShow4, rowToShow12);
+
+        if(this.value == "3" && selectElement1.value == "2" ){
+            rowToShowpreg4.style.display = "none";
+            rowToShow5.style.display = "none";
+            rowToShow6.style.display = "none";
+            rowToShow7.style.display = "none";
+            rowToShow8.style.display = "none";
+            rowToShow9.style.display = "none";
+            rowToShow10.style.display = "none";
+            rowToShow11.style.display = "none";
+            rowToShow12.style.display = "none";
+            rowToShow13.style.display = "none";
+            rowToShow14.style.display = "none";
+            rowToShow15.style.display = "none";
+        }else{
+            rowToShowpreg4.style.display = "table-row";
+            rowToShow5.style.display = "table-row";
+            rowToShow6.style.display = "table-row";
+            rowToShow7.style.display = "table-row";
+            rowToShow8.style.display = "table-row";
+            rowToShow9.style.display = "table-row";
+            rowToShow10.style.display = "table-row";
+            rowToShow11.style.display = "table-row";
+            rowToShow12.style.display = "table-row";
+            rowToShow13.style.display = "table-row";
+            rowToShow14.style.display = "table-row";
+            rowToShow15.style.display = "table-row";
         }
     });
 
@@ -1074,6 +1132,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         }
                     });
 
+                    let selectElement1 = document.querySelector(".seleccionar-ubicacion");
 
                     data.forEach(de => {
                         
@@ -1081,6 +1140,24 @@ document.addEventListener("DOMContentLoaded", function() {
                             //console.log(de[de.id]);
                             if(de[de.id] == 3 || de[de.id] == 6){
                                 document.querySelector("[data-id='fila3']").style.display = "none";
+                                
+                                
+                            }
+
+                           
+                            if(de[de.id] == 3 && selectElement1.value == "2" ){
+                                document.querySelector("[data-id='fila4']").style.display = "none";
+                                document.querySelector("[data-id='fila5']").style.display = "none";
+                                document.querySelector("[data-id='fila6']").style.display = "none";
+                                document.querySelector("[data-id='fila7']").style.display = "none";
+                                document.querySelector("[data-id='fila8']").style.display = "none";
+                                document.querySelector("[data-id='fila9']").style.display = "none";
+                                document.querySelector("[data-id='fila10']").style.display = "none";
+                                document.querySelector("[data-id='fila11']").style.display = "none";
+                                document.querySelector("[data-id='fila12']").style.display = "none";
+                                document.querySelector("[data-id='fila13']").style.display = "none";
+                                document.querySelector("[data-id='fila14']").style.display = "none";
+                                document.querySelector("[data-id='obs']").style.display = "none";
                             }
                         }
                         if(de.id == "estadoGuH"){
@@ -1135,14 +1212,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     console.log("Datos obtenidos. personas...:", data);
 
                     // Simular el evento de click en el botón
-                    var event = new MouseEvent('click', {
-                        view: window,
-                        bubbles: true,
-                        cancelable: true
-                    });
+                    // var event = new MouseEvent('click', {
+                    //     view: window,
+                    //     bubbles: true,
+                    //     cancelable: true
+                    // });
 
                     for (let i = 0; i < data.length/2; i++) {
-                        button.dispatchEvent(event);
+                        //button.dispatchEvent(event);
+                        document.querySelector(".nombre-orden-container").insertAdjacentHTML("beforebegin", agregarcaja(i+1))
                     }
 
                     let inputs = document.querySelectorAll("input");
@@ -1156,6 +1234,10 @@ document.addEventListener("DOMContentLoaded", function() {
                         })
                     });
 
+
+                    data.forEach(de => {
+                        console.log(de);
+                    })
 
 
 
@@ -1175,6 +1257,19 @@ document.addEventListener("DOMContentLoaded", function() {
         obtenerDatosLogin()
         obtenerDatosTiempo()
         obtenerDatosPersonas()
+
+        function agregarcaja(n) {
+            html = `<div style="margin-bottom: 20px;" class="contenedor">
+                        <input type="number" data-validar="valid" class="form-control input-orden contador" 
+                        data-insertar="insert" max="99" min="0" pattern="d{1,2}" oninput="limitarCaracteres(this)" 
+                        placeholder="N° Orden" data-id="o${n}" style="width: 200px; display: inline;">
+
+                        <input type="text" data-validar="valid" class="form-control input-nombre" data-insertar="insert" 
+                        placeholder="Nombre" data-id="n${n}" style="width: 200px; display: inline;">
+                    </div>`
+
+            return html        
+        }
         
 
         function eventoAdd() {
@@ -1186,7 +1281,22 @@ document.addEventListener("DOMContentLoaded", function() {
                     el.value.length == 1 ? el.value = `0${el.value}`:el.value 
                 })        
             });
+
         }
+
+
+
+        function inspeccion() {
+           let inputnumber = document.querySelectorAll("[type='number']")
+        
+            
+            if (inputnumber[inputnumber.length-1].value.length > 0) {
+                console.log("ss");
+            }else{
+                console.log("no es mayor a 0 ");
+            }
+        }
+        
 
 
         // Añadir datos a la base de datos
@@ -1283,6 +1393,40 @@ document.addEventListener("DOMContentLoaded", function() {
             };
         }
 
+
+        function borrarRegistro(id) {
+            // Abrir la base de datos
+            let request = indexedDB.open("miBaseDeDatos2", 1);
+
+            // Manejar éxito o error al abrir la base de datos
+            request.onsuccess = function(event) {
+                let db = event.target.result;
+                
+                // Iniciar una transacción de lectura/escritura en el almacén de objetos
+                let transaction = db.transaction(["personas"], "readwrite");
+
+                // Obtener el almacén de objetos
+                let objectStore = transaction.objectStore("personas");
+
+                // Borrar el registro con el ID proporcionado
+                let deleteRequest = objectStore.delete(id);
+
+                // Manejar éxito o error al borrar el registro
+                deleteRequest.onsuccess = function(event) {
+                    console.log("Registro borrado con éxito");
+                };
+
+                deleteRequest.onerror = function(event) {
+                    console.error("Error al borrar el registro");
+                };
+            };
+
+            request.onerror = function(event) {
+                console.error("Error al abrir la base de datos");
+            };
+        }
+
+
         //editarRegistro(preg, valor)
         //editarRegistro("estadoAr", "tiempo", 60)
 
@@ -1347,12 +1491,38 @@ document.addEventListener("DOMContentLoaded", function() {
         table.addEventListener("change", e=>{
             if(e.target.nodeName == "SELECT"){
                 
-                if(e.target.parentElement.firstElementChild.nodeName == "BUTTON" && e.target.value == 3 ){
+                if(e.target.parentElement.firstElementChild.nodeName == "BUTTON" && (e.target.value == 3 || e.target.value == 6) ){
                     e.target.parentElement.firstElementChild.removeAttribute("disabled")
+                    //console.log(e.target.parentElement.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.value);
+                    e.target.parentElement.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.value = ""
                 }
             }
             
         })
+
+
+
+
+        let eliminar = document.querySelector(".btn-delete")
+
+
+        eliminar.addEventListener("click", e=>{
+             //console.log("boton", eliminar);
+
+             let contenedor = document.querySelectorAll(".contenedor")
+             let orden = contenedor[contenedor.length-1].firstElementChild.getAttribute("data-id")
+             let nombre = contenedor[contenedor.length-1].firstElementChild.nextElementSibling.getAttribute("data-id")
+
+             contenedor[contenedor.length-1].remove()
+
+             borrarRegistro(orden)
+             borrarRegistro(nombre)
+             
+        })
+
+       
+
+
 
 
 
@@ -1563,6 +1733,21 @@ document.addEventListener("DOMContentLoaded", function() {
     // "Fecha Inicial 10"
     document.querySelector(".btn-inicio10").addEventListener("click", function() {
         
+        let validarlista = document.querySelectorAll("[data-validar= 'valid']")
+        let cont = 0
+
+        validarlista.forEach(el => {
+            
+            if(el.value == "" ){
+                console.log("hay un campo vacio");
+                
+            }else{
+                cont += 1 
+            }
+        });
+
+        
+
         
         if (!validarpreg8) {
             // Mostrar el modal de alerta
@@ -1570,6 +1755,13 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById('alertMessage').innerText = '¡Omisión en pregunta anterior, marcar la fecha final!';
             alertModal.show();
             return; // Detener la ejecución si la fecha inicial no ha sido marcada
+        }
+
+        if(cont != validarlista.length){
+            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+            document.getElementById('alertMessage').innerText = 'Llenar todos los campos en la sección 9';
+            alertModal.show();
+            return;
         }
 
         // Marcar que la fecha inicial ha sido marcada
