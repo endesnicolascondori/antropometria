@@ -365,7 +365,7 @@ thead th {
                         </td>
                     </tr>  
 
-                    <tr > 
+                    <tr data-id='fila2'> 
                         <td>2</td>
                         <td>REGISTRE FECHA Y HORA DE INICIO DE LA PRESENTACIÓN Y ARMADO DE EQUIPOS<br><br>
                         <strong>PREVIO A LA MEDICIÓN ANTROPOMÉTRICA:</strong> CONSIDERAR LA HORA DE INICIO DESDE LA PRESENTACIÓN BREVE QUE PUEDE SER AL INGRESAR A LA VIVIENDA O ESTANDO EN LA CALLE <b> PARA INICIAR EL ARMADO DE LOS EQUIPOS.</b>
@@ -836,6 +836,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let selectElement1 = document.querySelector(".seleccionar-ubicacion");
     let selectElement = document.querySelector(".seleccionar-resultado2"); 
+    let rowToShowfila2titulo = document.querySelector("[data-id='2aa']");
+    let rowToShowfila2 = document.querySelector("[data-id='fila2']");
     let rowToShow = document.querySelector("[data-id='fila3']");
     let rowToShowpreg4 = document.querySelector("[data-id='fila4']");
     let rowToShow5 = document.querySelector("[data-id='fila5']");
@@ -851,16 +853,13 @@ document.addEventListener("DOMContentLoaded", function() {
     let rowToShow15 = document.querySelector("[data-id='obs']");
 
 
-    selectElement.addEventListener("change", function() {
-        if (this.value === "3" || this.value === "6") {
+    selectElement1.addEventListener("click", function(){
+
+        if(this.value == "3" || this.value == "2" || this.value == "6" ){
+            console.log("hhh");
+            rowToShowfila2titulo.style.display = "none";
+            rowToShowfila2.style.display = "none";
             rowToShow.style.display = "none";
-        } else {
-            rowToShow.style.display = "table-row";
-        }
-
-        console.log("devvvvvvvvvvv", rowToShow4, rowToShow12);
-
-        if(this.value == "3" && selectElement1.value == "2" ){
             rowToShowpreg4.style.display = "none";
             rowToShow5.style.display = "none";
             rowToShow6.style.display = "none";
@@ -874,6 +873,9 @@ document.addEventListener("DOMContentLoaded", function() {
             rowToShow14.style.display = "none";
             rowToShow15.style.display = "none";
         }else{
+            rowToShowfila2titulo.style.display = "table-row";
+            rowToShowfila2.style.display = "table-row";
+            rowToShow.style.display = "table-row";
             rowToShowpreg4.style.display = "table-row";
             rowToShow5.style.display = "table-row";
             rowToShow6.style.display = "table-row";
@@ -887,6 +889,19 @@ document.addEventListener("DOMContentLoaded", function() {
             rowToShow14.style.display = "table-row";
             rowToShow15.style.display = "table-row";
         }
+    })
+
+
+
+
+    selectElement.addEventListener("change", function() {
+        if (this.value === "3" || this.value === "6") {
+            rowToShow.style.display = "none";
+        } else {
+            rowToShow.style.display = "table-row";
+        }
+
+        
     });
 
 
@@ -1136,16 +1151,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     data.forEach(de => {
                         
-                        if(de.id == "estadoAr"){
-                            //console.log(de[de.id]);
-                            if(de[de.id] == 3 || de[de.id] == 6){
+                        if(de.id == "resultadoA"){
+                            if(de[de.id] == 3 || de[de.id] == 2 || de[de.id] == 6   ){
+                                document.querySelector("[data-id='2aa']").style.display = "none";
+                                document.querySelector("[data-id='fila2']").style.display = "none";
                                 document.querySelector("[data-id='fila3']").style.display = "none";
-                                
-                                
-                            }
-
-                           
-                            if(de[de.id] == 3 && selectElement1.value == "2" ){
                                 document.querySelector("[data-id='fila4']").style.display = "none";
                                 document.querySelector("[data-id='fila5']").style.display = "none";
                                 document.querySelector("[data-id='fila6']").style.display = "none";
@@ -1159,6 +1169,16 @@ document.addEventListener("DOMContentLoaded", function() {
                                 document.querySelector("[data-id='fila14']").style.display = "none";
                                 document.querySelector("[data-id='obs']").style.display = "none";
                             }
+                        }
+
+                        if(de.id == "estadoAr"){
+                            //console.log(de[de.id]);
+                            if(de[de.id] == 3 || de[de.id] == 6){
+                                document.querySelector("[data-id='fila3']").style.display = "none";
+                                
+                                
+                            }
+
                         }
                         if(de.id == "estadoGuH"){
                             //console.log(de[de.id]);
