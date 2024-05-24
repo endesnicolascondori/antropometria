@@ -1753,36 +1753,36 @@ document.addEventListener("DOMContentLoaded", function() {
     // "Fecha Inicial 10"
     document.querySelector(".btn-inicio10").addEventListener("click", function() {
         
-        let validarlista = document.querySelectorAll("[data-validar= 'valid']")
-        let cont = 0
+        // let validarlista = document.querySelectorAll("[data-validar= 'valid']")
+        // let cont = 0
 
-        validarlista.forEach(el => {
+        // validarlista.forEach(el => {
             
-            if(el.value == "" ){
-                console.log("hay un campo vacio");
+        //     if(el.value == "" ){
+        //         console.log("hay un campo vacio");
                 
-            }else{
-                cont += 1 
-            }
-        });
+        //     }else{
+        //         cont += 1 
+        //     }
+        // });
 
         
 
         
-        if (!validarpreg8) {
-            // Mostrar el modal de alerta
-            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
-            document.getElementById('alertMessage').innerText = '¡Omisión en pregunta anterior, marcar la fecha final!';
-            alertModal.show();
-            return; // Detener la ejecución si la fecha inicial no ha sido marcada
-        }
+        // if (!validarpreg8) {
+        //     // Mostrar el modal de alerta
+        //     var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+        //     document.getElementById('alertMessage').innerText = '¡Omisión en pregunta anterior, marcar la fecha final!';
+        //     alertModal.show();
+        //     return; // Detener la ejecución si la fecha inicial no ha sido marcada
+        // }
 
-        if(cont != validarlista.length){
-            var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
-            document.getElementById('alertMessage').innerText = 'Llenar todos los campos en la sección 9';
-            alertModal.show();
-            return;
-        }
+        // if(cont != validarlista.length){
+        //     var alertModal = new bootstrap.Modal(document.getElementById('alertModal'));
+        //     document.getElementById('alertMessage').innerText = 'Llenar todos los campos en la sección 9';
+        //     alertModal.show();
+        //     return;
+        // }
 
         // Marcar que la fecha inicial ha sido marcada
         fechaInicioMarcada4 = true;
