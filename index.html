@@ -744,6 +744,7 @@
 
                     data[0].usu.forEach(el => {
                         if(el.CARGO_ID._text == 25){
+                            console.log("llll");
                             list.insertAdjacentHTML('afterbegin', `<option class="recousu" data-usu="${el.CARGO_ID._text}" data-nombre="${el.NOMBRES._text} ${el.APELLIDOS._text}" value="${el.USUARIO._text}">${el.NOMBRES._text} ${el.APELLIDOS._text} - ANTROP.</option>`);
                             document.querySelector("#logoimg").setAttribute("src", `https://iinei.inei.gob.pe/iinei/asistencia/fotos/${el.USUARIO._text}.jpg`)
                         }else if(el.CARGO_ID._text == 22){
@@ -805,7 +806,7 @@
                     if(data.length > 0){
                         console.log("tiene un reg")
 
-                       
+                        document.querySelector("#logoimg").setAttribute("src", `https://iinei.inei.gob.pe/iinei/asistencia/fotos/${data[0].codencu}.jpg`)
                         
                         document.querySelectorAll(".recousu").forEach(el => {
                             if(el.value == data[0].codencu){
@@ -1462,6 +1463,15 @@
                 }
             });
             //console.log(optionsvivi)
+
+        })
+
+
+        //nomconglo////////////////////////////////////////////
+        document.querySelector("#nomencu").addEventListener('change', e=>{
+
+            document.querySelector("#logoimg").setAttribute("src", `https://iinei.inei.gob.pe/iinei/asistencia/fotos/${e.target.value}.jpg`)
+            console.log(e.target.value);
 
         })
 
