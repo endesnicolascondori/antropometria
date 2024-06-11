@@ -1549,10 +1549,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
         // Función para obtener la fecha actual en formato "YYYY-MM-DD"
+    // function obtenerFechaHoraActual() {
+    //     const ahora = new Date();
+    //     const fecha = ahora.toLocaleDateString();
+    //     const hora = ahora.toLocaleTimeString();
+    //     const fechaHora = `${fecha} ${hora}`;
+    //     return fechaHora;
+    // }
+
     function obtenerFechaHoraActual() {
         const ahora = new Date();
+        
+        // Obtener la fecha
         const fecha = ahora.toLocaleDateString();
-        const hora = ahora.toLocaleTimeString();
+        
+        // Obtener y formatear la hora en 24 horas
+        const horas = String(ahora.getHours()).padStart(2, '0');
+        const minutos = String(ahora.getMinutes()).padStart(2, '0');
+        const segundos = String(ahora.getSeconds()).padStart(2, '0');
+        const hora = `${horas}:${minutos}:${segundos}`;
+        
+        // Combinar fecha y hora
         const fechaHora = `${fecha} ${hora}`;
         return fechaHora;
     }
